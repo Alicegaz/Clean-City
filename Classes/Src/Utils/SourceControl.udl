@@ -117,7 +117,7 @@ Method Load(InternalName As %String)
         Return
     }
     If (##class(%File).DirectoryExists(filename)) {
-        $$$do($system.OBJ.LoadDir(filename,,,$$$YES))
+        $$$do($system.OBJ.ImportDir(filename,,,,$$$YES))
     }
     else {
         If (##class(%File).GetFileDateModified(filename)=$get(@..#SETTINGS@("FileTimeStamp",InternalName))) {
