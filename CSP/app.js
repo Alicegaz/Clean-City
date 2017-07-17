@@ -9,7 +9,7 @@ mainModule.config(function ($routeProvider, $httpProvider) {
   $httpProvider.useApplyAsync(true);
 
   $routeProvider.when('/', {
-    templateUrl: 'modules/main/main.html',
+    templateUrl: 'pages/main/main.html',
     controller: 'mainController'
   });
 
