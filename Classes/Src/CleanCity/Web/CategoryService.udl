@@ -1,0 +1,31 @@
+Class Src.CleanCity.Web.CategoryService
+{
+
+ClassMethod GetCategory(id As %String) As %Status
+{
+	
+	set proxy = ##class(%ZEN.proxyObject).%New()
+	set proxy.id = id
+	set proxy.name = "уборка"
+	
+	quit proxy.%ToJSON()
+}
+
+ClassMethod GetCategories() As %Status
+{
+
+	set proxy = ##class(%ZEN.proxyObject).%New()
+	set proxy.children = ##class(%ListOfObjects).%New()
+	
+	for i=1:1:5 {
+		set proxy1 = ##class(%ZEN.proxyObject).%New()
+		set proxy1.id = i
+		set proxy1.name = "this "_i_" is my id"
+		do proxy.children.Insert(proxy1)
+	}
+	
+	quit proxy.%ToJSON()
+}
+
+}
+

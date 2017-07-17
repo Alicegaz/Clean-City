@@ -1,0 +1,44 @@
+Class Src.CleanCity.Web.ActService
+{
+
+ClassMethod GetAct(id As %String) As %Status
+{
+
+	set proxy = ##class(%ZEN.proxyObject).%New()
+	set proxy.id = id
+	set proxy.name = "Иван"
+	set proxy.phone = "123-456-789"
+	set proxy.email = "1@mail.ru"
+	set proxy.content = "жизнь - боль, привыкай"
+	set proxy.areaid = 1
+	set proxy.status = "невыполнимо"
+	set proxy.categoryid = 1
+	
+	quit proxy.%ToJSON()
+}
+
+ClassMethod GetActs() As %Status
+{
+
+	set proxy1 = ##class(%ZEN.proxyObject).%New()
+	set proxy1.children = ##class(%ListOfObjects).%New()
+	
+	for i=1:1:5 {
+		set proxy = ##class(%ZEN.proxyObject).%New()
+		set proxy.id = i+15
+		set proxy.name = "Иван"
+		set proxy.phone = "123-456-789"
+		set proxy.email = "1@mail.ru"
+		set proxy.content = "жизнь - боль, привыкай"
+		set proxy.areaid = i+5
+		set proxy.status = "невыполнимо"
+		set proxy.categoryid = i
+		
+		do proxy1.children.Insert(proxy)
+	}
+	
+	quit proxy1.%ToJSON()
+}
+
+}
+
