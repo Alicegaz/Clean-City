@@ -1,13 +1,34 @@
 Class Src.CleanCity.Data.Area Extends %Persistent
 {
 
-Property GeoPoints As list Of GeoPoints;
+Property GeoPoints As list Of GeoPoint;
 
-Relationship Areas As Src.CleanCity.Data.Responsible [ Cardinality = one, Inverse = RespArea ];
+Relationship Responsible As Src.CleanCity.Data.Responsible [ Cardinality = one, Inverse = Areas ];
 
-Index AreasIndex On Areas;
+Relationship Acts As Src.CleanCity.Data.Act [ Cardinality = many, Inverse = Area ];
 
-Relationship AreaAct As Src.CleanCity.Data.Act [ Cardinality = many, Inverse = Acts ];
+Index ResponsibleIndex On Responsible;
+
+Storage Default
+{
+<Data name="AreaDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>GeoPoints</Value>
+</Value>
+<Value name="3">
+<Value>Responsible</Value>
+</Value>
+</Data>
+<DataLocation>^Src.CleanCity.Data.AreaD</DataLocation>
+<DefaultData>AreaDefaultData</DefaultData>
+<IdLocation>^Src.CleanCity.Data.AreaD</IdLocation>
+<IndexLocation>^Src.CleanCity.Data.AreaI</IndexLocation>
+<StreamLocation>^Src.CleanCity.Data.AreaS</StreamLocation>
+<Type>%Library.CacheStorage</Type>
+}
 
 }
 

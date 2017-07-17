@@ -1,0 +1,24 @@
+Class Src.CleanCity.Data.GeoPoint Extends (%SerialObject, %Populate)
+{
+
+Property Latitude As %String;
+
+Property Longitude As %String;
+
+Storage Default
+{
+<Data name="GeoPointState">
+<Value name="1">
+<Value>Latitude</Value>
+</Value>
+<Value name="2">
+<Value>Longitude</Value>
+</Value>
+</Data>
+<State>GeoPointState</State>
+<StreamLocation>^Src.CleanCity.Data.GeoPointS</StreamLocation>
+<Type>%Library.CacheSerialState</Type>
+}
+
+}
+

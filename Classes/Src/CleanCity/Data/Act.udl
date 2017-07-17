@@ -9,11 +9,17 @@ Property Email As %String;
 
 Property Content As %String;
 
-Property GeoPoints As list Of GeoPoints;
+Relationship Area As Src.CleanCity.Data.Area [ Cardinality = one, Inverse = Acts ];
 
-Relationship Acts As Src.CleanCity.Data.Area [ Cardinality = one, Inverse = AreaAct ];
+Relationship Status As Src.CleanCity.Data.Status [ Cardinality = one, Inverse = Acts ];
 
-Index ActsIndex On Acts;
+Relationship Category As Src.CleanCity.Data.Category [ Cardinality = one, Inverse = Acts ];
+
+Index AreaIndex On Area;
+
+Index StatusIndex On Status;
+
+Index CategoryIndex On Category;
 
 Storage Default
 {
@@ -34,13 +40,13 @@ Storage Default
 <Value>Content</Value>
 </Value>
 <Value name="6">
-<Value>GeoPoints</Value>
+<Value>Area</Value>
 </Value>
 <Value name="7">
-<Value>Acts</Value>
+<Value>Status</Value>
 </Value>
 <Value name="8">
-<Value>StatusOfAct</Value>
+<Value>Category</Value>
 </Value>
 </Data>
 <DataLocation>^Src.CleanCity.Data.ActD</DataLocation>
@@ -50,14 +56,6 @@ Storage Default
 <StreamLocation>^Src.CleanCity.Data.ActS</StreamLocation>
 <Type>%Library.CacheStorage</Type>
 }
-
-Relationship StatusOfAct As Src.CleanCity.Data.Status [ Cardinality = one, Inverse = StatusAct ];
-
-Index StatusOfActIndex On StatusOfAct;
-
-Relationship CategoryOfAct As Src.CleanCity.Data.Categories [ Cardinality = one, Inverse = CategoriesAct ];
-
-Index CategoryOfActIndex On CategoryOfAct;
 
 }
 

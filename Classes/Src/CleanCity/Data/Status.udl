@@ -3,9 +3,7 @@ Class Src.CleanCity.Data.Status Extends (%Persistent, %Populate)
 
 Property Name As %String;
 
-Property Flag As %Boolean;
-
-Relationship StatusAct As Src.CleanCity.Data.Act [ Cardinality = many, Inverse = StatusOfAct ];
+Relationship Acts As Src.CleanCity.Data.Act [ Cardinality = many, Inverse = Status ];
 
 Storage Default
 {

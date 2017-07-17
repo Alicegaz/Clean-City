@@ -1,9 +1,0 @@
-Class Src.CleanCity.Data.GeoPoints Extends (%SerialObject, %Populate)
-{
-
-Property Latitude As %String;
-
-Property Longitude As %String;
-
-}
-

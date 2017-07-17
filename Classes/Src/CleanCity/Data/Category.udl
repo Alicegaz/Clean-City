@@ -1,0 +1,27 @@
+Class Src.CleanCity.Data.Category Extends (%Persistent, %Populate)
+{
+
+Property Name As %String;
+
+Relationship Acts As Src.CleanCity.Data.Act [ Cardinality = many, Inverse = Category ];
+
+Storage Default
+{
+<Data name="CategoryDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Name</Value>
+</Value>
+</Data>
+<DataLocation>^Src.CleanCity.Data.CategoryD</DataLocation>
+<DefaultData>CategoryDefaultData</DefaultData>
+<IdLocation>^Src.CleanCity.Data.CategoryD</IdLocation>
+<IndexLocation>^Src.CleanCity.Data.CategoryI</IndexLocation>
+<StreamLocation>^Src.CleanCity.Data.CategoryS</StreamLocation>
+<Type>%Library.CacheStorage</Type>
+}
+
+}
+
