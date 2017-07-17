@@ -1,7 +1,7 @@
-Class Src.CleanCity.Logic.BusinessLogic Extends Src.CleanCity.Logic.BaseLogic
+Class Src.CleanCity.Logic.Act Extends Src.CleanCity.Logic.BaseLogic
 {
 
-ClassMethod ReturnActToProxyObject(id As %String) As %ZEN.proxyObject
+ClassMethod GetById(id As %String) As %ZEN.proxyObject
 {
 	set proxy = ##class(%ZEN.proxyObject).%New()
 	set proxy.id = id
