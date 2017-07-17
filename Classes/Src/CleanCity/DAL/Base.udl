@@ -1,0 +1,24 @@
+Include Src.Utils.Macro
+
+/// Base class for data access layer classes
+Class Src.CleanCity.DAL.Base [ Abstract ]
+{
+
+/// Save entity
+ClassMethod Save(entity As %Persistent)
+{
+	$$$do(entity.%Save())
+}
+
+/// Get result set by sql query
+ClassMethod GetResultSetByQuery(sql As %String) As %ResultSet
+{
+	set resultset = ##class(%ResultSet).%New("%DynamicQuery:SQL")
+	do resultset.Prepare(sql)
+	do resultset.%Execute()
+	
+	return resultset
+}
+
+}
+

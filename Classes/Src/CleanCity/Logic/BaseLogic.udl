@@ -1,0 +1,7 @@
+Include Src.Utils.Macro
+
+Class Src.CleanCity.Logic.BaseLogic Extends %RegisteredObject [ Abstract ]
+{
+
+}
+
