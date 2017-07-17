@@ -10,6 +10,12 @@ ClassMethod Save(entity As %Persistent)
 	$$$do(entity.%Save())
 }
 
+/// Delete Entity
+ClassMethod Delete(id)
+{
+	$$$do(##class(Src.CleanCity.Data.Act).%DeleteId(id))
+}
+
 /// Get result set by sql query
 ClassMethod GetResultSetByQuery(sql As %String) As %ResultSet
 {
@@ -18,6 +24,16 @@ ClassMethod GetResultSetByQuery(sql As %String) As %ResultSet
 	do resultset.%Execute()
 	
 	return resultset
+}
+
+// Get result set for all from one table
+
+ClassMethod GetResultSetAll(tableName As %String) As %ResultSet
+{
+	set sql = "SELECT ID FROM Scr_CleanCity_Data."_tableName
+	set result = ..GetResultSetByQuery(sql)
+	
+	return result
 }
 
 }

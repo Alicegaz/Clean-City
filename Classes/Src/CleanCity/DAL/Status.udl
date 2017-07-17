@@ -1,0 +1,25 @@
+Class Src.CleanCity.DAL.Status Extends Src.CleanCity.DAL.Base
+{
+
+ClassMethod GetById(id As %Integer) As Src.CleanCity.Data.Status
+{
+	set result = ##class(Src.CleanCity.Data.Status).%OpenId(id,,.sc)
+	$$$do(sc)
+	
+	return result
+}
+
+ClassMethod GetByIdOrCreate(id As %Integer) As Src.CleanCity.Data.Status
+{
+	if (##class(Src.CleanCity.Data.Status).%ExistsId(id)){
+		set result = ..GetById(id)
+	}
+	else{
+		set result = ##class(Src.CleanCity.Data.Status).%New()
+	}
+	
+	return result
+}
+
+}
+

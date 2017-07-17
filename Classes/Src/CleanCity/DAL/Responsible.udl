@@ -1,0 +1,25 @@
+Class Src.CleanCity.DAL.Responsible Extends Src.CleanCity.DAL.Base
+{
+
+ClassMethod GetById(id As %Integer) As Src.CleanCity.Data.Responsible
+{
+	set result = ##class(Src.CleanCity.Data.Responsible).%OpenId(id,,.sc)
+	$$$do(sc)
+	
+	return result
+}
+
+ClassMethod GetByIdOrCreate(id As %Integer) As Src.CleanCity.Data.Responsible
+{
+	if (##class(Src.CleanCity.Data.Responsible).%ExistsId(id)){
+		set result = ..GetById(id)
+	}
+	else{
+		set result = ##class(Src.CleanCity.Data.Responsible).%New()
+	}
+	
+	return result
+}
+
+}
+
