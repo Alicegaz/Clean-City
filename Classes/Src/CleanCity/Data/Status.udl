@@ -1,0 +1,29 @@
+Class Src.CleanCity.Data.Status Extends (%Persistent, %Populate)
+{
+
+Property Name As %String;
+
+Property Flag As %Boolean;
+
+Relationship StatusAct As Src.CleanCity.Data.Act [ Cardinality = many, Inverse = StatusOfAct ];
+
+Storage Default
+{
+<Data name="StatusDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Name</Value>
+</Value>
+</Data>
+<DataLocation>^Src.CleanCity.Data.StatusD</DataLocation>
+<DefaultData>StatusDefaultData</DefaultData>
+<IdLocation>^Src.CleanCity.Data.StatusD</IdLocation>
+<IndexLocation>^Src.CleanCity.Data.StatusI</IndexLocation>
+<StreamLocation>^Src.CleanCity.Data.StatusS</StreamLocation>
+<Type>%Library.CacheStorage</Type>
+}
+
+}
+

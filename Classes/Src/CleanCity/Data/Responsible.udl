@@ -1,0 +1,13 @@
+Class Src.CleanCity.Data.Responsible Extends %Persistent
+{
+
+Property Name As %String;
+
+Property Phone As %String;
+
+Property Email As %String;
+
+Relationship RespArea As Src.CleanCity.Data.Area [ Cardinality = many, Inverse = Areas ];
+
+}
+

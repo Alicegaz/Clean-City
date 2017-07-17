@@ -1,0 +1,63 @@
+Class Src.CleanCity.Data.Act Extends %Persistent
+{
+
+Property Name As %String;
+
+Property Phone As %String;
+
+Property Email As %String;
+
+Property Content As %String;
+
+Property GeoPoints As list Of GeoPoints;
+
+Relationship Acts As Src.CleanCity.Data.Area [ Cardinality = one, Inverse = AreaAct ];
+
+Index ActsIndex On Acts;
+
+Storage Default
+{
+<Data name="ActDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Name</Value>
+</Value>
+<Value name="3">
+<Value>Phone</Value>
+</Value>
+<Value name="4">
+<Value>Email</Value>
+</Value>
+<Value name="5">
+<Value>Content</Value>
+</Value>
+<Value name="6">
+<Value>GeoPoints</Value>
+</Value>
+<Value name="7">
+<Value>Acts</Value>
+</Value>
+<Value name="8">
+<Value>StatusOfAct</Value>
+</Value>
+</Data>
+<DataLocation>^Src.CleanCity.Data.ActD</DataLocation>
+<DefaultData>ActDefaultData</DefaultData>
+<IdLocation>^Src.CleanCity.Data.ActD</IdLocation>
+<IndexLocation>^Src.CleanCity.Data.ActI</IndexLocation>
+<StreamLocation>^Src.CleanCity.Data.ActS</StreamLocation>
+<Type>%Library.CacheStorage</Type>
+}
+
+Relationship StatusOfAct As Src.CleanCity.Data.Status [ Cardinality = one, Inverse = StatusAct ];
+
+Index StatusOfActIndex On StatusOfAct;
+
+Relationship CategoryOfAct As Src.CleanCity.Data.Categories [ Cardinality = one, Inverse = CategoriesAct ];
+
+Index CategoryOfActIndex On CategoryOfAct;
+
+}
+

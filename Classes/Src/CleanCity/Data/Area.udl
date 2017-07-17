@@ -1,0 +1,13 @@
+Class Src.CleanCity.Data.Area Extends %Persistent
+{
+
+Property GeoPoints As list Of GeoPoints;
+
+Relationship Areas As Src.CleanCity.Data.Responsible [ Cardinality = one, Inverse = RespArea ];
+
+Index AreasIndex On Areas;
+
+Relationship AreaAct As Src.CleanCity.Data.Act [ Cardinality = many, Inverse = Acts ];
+
+}
+
