@@ -1,0 +1,22 @@
+Class Src.CleanCity.Services.BaseService [ Abstract ]
+{
+
+/// Parse input stream to object
+ClassMethod ParseInputStream(stream As %Stream.Object) As %RegisteredObject
+{
+	set data = ..DecodeInputStream(stream)
+	$$$THROWONERROR(st, ##class(%ZEN.Auxiliary.jsonProvider).%ConvertJSONToObject(data, , .result, 1))
+	
+	return result
+}
+
+/// Decode input stream from UTF8
+ClassMethod DecodeInputStream(stream As %Stream.Object) As %Stream.Object
+{
+	//TODO
+	set result = $ZCVT(stream.Read(10000000), "I", "UTF8")
+	
+	return result
+}
+
+}
