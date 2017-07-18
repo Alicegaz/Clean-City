@@ -37,11 +37,29 @@ ClassMethod GetShortView(obj As Src.CleanCity.Data.Area) As Src.CleanCity.DTO.Ar
   for i=1:1:obj.GeoPoints.Count(){
 	  set point = obj.GeoPoints.GetAt(i)
 	  set pointDto = ##class(Src.CleanCity.DTO.GeoPointDTO).%New()
-	  set pointDto.lalitude = point.Latitude
+	  set pointDto.latitude = point.Latitude
 	  set pointDto.longitude = point.Longitude
 	  $$$do(result.geoPoints.Insert(pointDto))
   }
   return result
+}
+
+ClassMethod Save(dto As Src.CleanCity.DTO.AreaDTO)
+{
+	set obj = ##class(Src.CleanCity.DAL.Area).GetByIdOrCreate(dto.id)
+ 	
+ 	//set obj.Responsible = dto.responsible
+ 	
+ 	for i=1:1:dto.geoPoints.Count() {
+	 set point = dto.geoPoints.GetAt(i)
+	 set pointDto = ##class(Src.CleanCity.Data.GeoPoint).%New()
+	 set pointDto.Latitude = point.latitude
+	 set pointDto.Longitude = point.longitude
+	 $$$do(result.GeoPoints.Insert(pointDto))	
+ 	}
+ 	
+
+ 	do ##class(Src.CleanCity.DAL.Area).Save(obj)
 }
 
 Storage Default

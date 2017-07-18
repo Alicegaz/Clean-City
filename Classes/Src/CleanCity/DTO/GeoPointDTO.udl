@@ -1,7 +1,7 @@
 Class Src.CleanCity.DTO.GeoPointDTO Extends %RegisteredObject
 {
 
-Property lalitude As %String;
+Property latitude As %String;
 
 Property longitude As %String;
 
