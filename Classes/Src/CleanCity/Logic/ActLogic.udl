@@ -49,6 +49,21 @@ ClassMethod GetAll() As %ListOfObjects
  	return result
 }
 
+ClassMethod Save(data As Src.CleanCity.DTO.ActDTO)
+{
+	set obj = ##class(Src.CleanCity.DAL.Act).GetByIdOrCreate(data.id)
+ 	
+ 	set obj.Name = data.name
+	set obj.Phone = data.phone
+	set obj.Email = data.email
+	set obj.Content = data.content
+	set obj.Area = data.area
+	set obj.Status = data.status
+	set obj.Category = data.category
+
+ 	do ##class(Src.CleanCity.DAL.Categories).Save(obj)
+}
+
 Storage Default
 {
 <Data name="ActLogicDefaultData">

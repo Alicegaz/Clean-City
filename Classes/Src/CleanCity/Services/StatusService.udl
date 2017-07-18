@@ -31,5 +31,24 @@ ClassMethod GetAll() As %Status
 	return status
 }
 
+ClassMethod Save() As %Status
+{
+	TSTART
+ 	set status = $$$OK
+ 	try
+ 	{
+  		set data = ..ParseInputStream(%request.Content)
+  		do ##class(Src.CleanCity.Logic.StatusLogic).Save(data)
+  
+  		TCOMMIT
+ 	}
+ 	catch ex {
+  		set status = ex.AsStatus()
+  
+  		TROLLBACK
+ 	}
+ 	return status
+}
+
 }
 

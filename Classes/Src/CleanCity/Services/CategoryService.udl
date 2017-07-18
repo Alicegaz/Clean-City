@@ -40,12 +40,12 @@ ClassMethod Save() As %Status
   		set data = ..ParseInputStream(%request.Content)
   		do ##class(Src.CleanCity.Logic.CategoryLogic).Save(data)
   
-  	TCOMMIT
+  		TCOMMIT
  	}
  	catch ex {
   		set status = ex.AsStatus()
   
-  	TROLLBACK
+  		TROLLBACK
  	}
  	return status
 }
