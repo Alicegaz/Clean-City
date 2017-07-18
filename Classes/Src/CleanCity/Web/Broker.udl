@@ -1,0 +1,39 @@
+Class Src.CleanCity.Web.Broker Extends %CSP.REST
+{
+
+XData UrlMap
+{
+<Routes>
+
+<!-- Получить категорию по ID -->
+<Route Url="/category/:id" Method="GET" Call="Src.CleanCity.Web.CategoryService:GetCategory"/>
+
+<!-- Получить все категории -->
+<Route Url="/category-list" Method="GET" Call="Src.CleanCity.Web.CategoryService:GetCategories"/>
+
+<!-- Получить обращение по ID -->
+<Route Url="/act/:id" Method="GET" Call="Src.CleanCity.Web.ActService:GetAct"/>
+
+<!-- Получить все обращения -->
+<Route Url="/act-list" Method="GET" Call="Src.CleanCity.Web.ActService:GetActs"/>
+
+<!-- Получить организацию по  ID-->
+<Route Url="/responsible/:id" Method="GET" Call="Src.CleanCity.Web.ResponsibleService:GetResponsible"/>
+
+<!-- Получить все организации-->
+<Route Url="/responsible-list" Method="GET" Call="Src.CleanCity.Web.ResponsibleService:GetResponsibles"/>
+
+<!-- Получить область по  ID-->
+<Route Url="/area/:id" Method="GET" Call="Src.CleanCity.Web.AreaService:GetArea"/>
+
+<!-- Получить все области-->
+<Route Url="/area-list" Method="GET" Call="Src.CleanCity.Web.AreaService:GetAreas"/>
+
+
+
+
+</Routes>
+}
+
+}
+

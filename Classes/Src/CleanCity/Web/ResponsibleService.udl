@@ -1,0 +1,39 @@
+ Extends
+Class Src.CleanCity.Web.ResponsibleService
+{
+
+ClassMethod GetResponsible(id As %String) As %Status
+{
+	
+	set proxy = ##class(%ZEN.proxyObject).%New()
+	set proxy.id = id
+	set proxy.name = "Чистый Двор"
+	set proxy.phone = "123-465-789"
+	set proxy.email = "1_1@mail.ru"
+	set proxy.areaid = 45
+	
+	quit proxy.%ToJSON()
+}
+
+ClassMethod GetResponsibles() As %Status
+{
+
+	set proxy1 = ##class(%ZEN.proxyObject).%New()
+	set proxy1.children = ##class(%ListOfObjects).%New()
+	
+	for i=1:1:5 {
+		set proxy = ##class(%ZEN.proxyObject).%New()
+		set proxy.id = i+5
+		set proxy.name = "Чистый Двор"
+		set proxy.phone = "123-465-789"
+		set proxy.email = "1_1@mail.ru"
+		set proxy.areaid = 45+i
+		
+		do proxy1.children.Insert(proxy)
+	}
+	
+	quit proxy1.%ToJSON()
+}
+
+}
+
