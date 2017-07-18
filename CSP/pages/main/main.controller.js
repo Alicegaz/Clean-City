@@ -1,8 +1,29 @@
-controllersModule.controller('mainController', function ($scope, $compile) {
+controllersModule.controller('mainController', function ($scope, $compile, AreaSrvc) {
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -34.397, lng: 150.644},
     zoom: 8
   });
+  AreaSrvc.getAll().then(
+	  function(response){
+	      for (var i = 0; i < response.data.length; i++) { 
+	     	console.log(response.data[i]);
+	     	var area = response.data[i];
+	     	var coords = [];
+	     	for (var j=0; j < area.geoPoints.length; j++) {
+		     	coords.push({lat: area.geoPoints[j].latitude, lng: area.geoPoints[j].longitude})
+		    }
+		    console.log(coords);
+	      	var area = new google.maps.Polygon({
+    			map: map,
+    			paths: coords,
+    			strokeColor: '#FF0000',
+    			strokeOpacity: 0.8,
+    			strokeWeight: 3,
+    			fillColor: '#FF0000',
+   				fillOpacity: 0.35
+             });
+		  }
+	  });
   var infoWindow = new google.maps.InfoWindow({map: map});
 
   if (navigator.geolocation) {
@@ -23,40 +44,27 @@ controllersModule.controller('mainController', function ($scope, $compile) {
     handleLocationError(false, infoWindow, map.getCenter());
   }
 
-  var triangleCoords = [
+  var Coords = [
   {lat: 25.774, lng: -80.190},
   {lat: 18.466, lng: -66.118},
   {lat: 32.321, lng: -64.757}
   ];
 
-  var triangle1Coords = [
-  {lat: 35.774, lng: -60.190},
-  {lat: 18.466, lng: -66.118},
-  {lat: 32.321, lng: -64.757}
-  ];
-  new google.maps.Polygon({
+  
+  var Area = new google.maps.Polygon({
     map: map,
-    paths: triangleCoords,
+    paths: Coords,
     strokeColor: '#FF0000',
     strokeOpacity: 0.8,
     strokeWeight: 3,
     fillColor: '#FF0000',
     fillOpacity: 0.35
   });
-  new google.maps.Polygon({
-    map: map,
-    paths: triangle1Coords,
-    strokeColor: '#FF0000',
-    strokeOpacity: 0.8,
-    strokeWeight: 3,
-    fillColor: '#FF0000',
-    fillOpacity: 0.35
-  });
-
-  bermudaTriangle.setMap(map);
+  
+  Area.setMap(map);
 
   // Add a listener for the click event.
-  bermudaTriangle.addListener('click', showArrays);
+  Area.addListener('click', showArrays);
 
   infoWindow = new google.maps.InfoWindow;
 
@@ -70,22 +78,19 @@ controllersModule.controller('mainController', function ($scope, $compile) {
 
   /** @this {google.maps.Polygon} */
   function showArrays(event) {
-        // Since this polygon has only one path, we can call getPath() to return the
-        // MVCArray of LatLngs.
         var vertices = this.getPath();
-
         var contentString = '<b>Bermuda Triangle polygon</b><br>' +
         'Clicked location: <br>' + event.latLng.lat() + ',' + event.latLng.lng() +
         '<br>';
 
         // Iterate over the vertices.
-        for (var i =0; i < vertices.getLength(); i++) {
+        /*for (var i =0; i < vertices.getLength(); i++) {
           var xy = vertices.getAt(i);
           contentString += '<br>' + 'Coordinate ' + i + ':<br>' + xy.lat() + ',' +
           xy.lng();
-        }
+        } */
 
-        // Replace the info window's content and position.
+       // Replace the info window's content and position.
         infoWindow.setContent(contentString);
         infoWindow.setPosition(event.latLng);
 
