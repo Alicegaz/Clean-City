@@ -36,6 +36,19 @@ ClassMethod GetShortView(obj As Src.CleanCity.Data.Responsible) As Src.CleanCity
   return result
 }
 
+ClassMethod Save(data As Src.CleanCity.DTO.ResponsibleDTO)
+{
+	set obj = ##class(Src.CleanCity.DAL.Responsible).GetByIdOrCreate(data.id)
+ 	
+ 	set obj.Name = data.name
+ 	
+ 	set obj.Phone = data.phone
+ 	
+ 	set obj.Email = data.email 
+
+ 	do ##class(Src.CleanCity.DAL.Responsible).Save(obj)
+}
+
 Storage Default
 {
 <Data name="ResponsibleLogicDefaultData">
