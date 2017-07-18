@@ -5,31 +5,39 @@ XData UrlMap
 {
 <Routes>
 
-<!-- Получить категорию по ID -->
+<!-- РџРѕР»СѓС‡РёС‚СЊ РєР°С‚РµРіРѕСЂРёСЋ РїРѕ ID -->
 <Route Url="/category/:id" Method="GET" Call="Src.CleanCity.Services.CategoryService:GetById"/>
 
-<!-- Получить все категории -->
+<!-- РџРѕР»СѓС‡РёС‚СЊ РІСЃРµ РєР°С‚РµРіРѕСЂРёРё -->
 <Route Url="/category-list" Method="GET" Call="Src.CleanCity.Services.CategoryService:GetAll"/>
 
-<!-- Получить обращение по ID -->
-<Route Url="/act/:id" Method="GET" Call="Src.CleanCity.Web.ActService:GetAct"/>
+<!-- РџРѕР»СѓС‡РёС‚СЊ РѕР±СЂР°С‰РµРЅРёРµ РїРѕ ID -->
+<Route Url="/act/:id" Method="GET" Call="Src.CleanCity.Services.ActService:GetById"/>
 
-<!-- Получить все обращения -->
-<Route Url="/act-list" Method="GET" Call="Src.CleanCity.Web.ActService:GetActs"/>
+<!-- РџРѕР»СѓС‡РёС‚СЊ РІСЃРµ РѕР±СЂР°С‰РµРЅРёСЏ -->
+<Route Url="/act-list" Method="GET" Call="Src.CleanCity.Services.ActService:GetAll"/>
 
-<!-- Получить организацию по  ID-->
+<!-- РџРѕР»СѓС‡РёС‚СЊ РѕСЂРіР°РЅРёР·Р°С†РёСЋ РїРѕ  ID-->
 <Route Url="/responsible/:id" Method="GET" Call="Src.CleanCity.Services.ResponsibleService:GetById"/>
 
-<!-- Получить все организации-->
+<!-- РџРѕР»СѓС‡РёС‚СЊ РІСЃРµ РѕСЂРіР°РЅРёР·Р°С†РёРё-->
 <Route Url="/responsible-list" Method="GET" Call="Src.CleanCity.Services.ResponsibleService:GetAll"/>
 
-<!-- Получить область по  ID-->
+<!-- РџРѕР»СѓС‡РёС‚СЊ РѕР±Р»Р°СЃС‚СЊ РїРѕ  ID-->
 <Route Url="/area/:id" Method="GET" Call="Src.CleanCity.Services.AreaService:GetById"/>
 
-<!-- Получить все области-->
+<!-- РџРѕР»СѓС‡РёС‚СЊ РІСЃРµ РѕР±Р»Р°СЃС‚Рё-->
 <Route Url="/area-list" Method="GET" Call="Src.CleanCity.Services.AreaService:GetAll"/>
+<Route Url="/status/:id" Method="GET" Call="Src.CleanCity.Services.StatusService:GetById"/>
+<Route Url="/status-list" Method="GET" Call="Src.CleanCity.Services.StatusService:GetAll"/>
 
+<Route Url="/category" Method="POST" Call="Src.CleanCity.Services.CategoryService:Save"/>
 
+<Route Url="/responsible" Method="POST" Call="Src.CleanCity.Services.ResponsibleService:Save"/>
+
+<Route Url="/area" Method="POST" Call="Src.CleanCity.Services.AreaService:Save"/>
+
+<Route Url="/act" Method="POST" Call="Src.CleanCity.Services.ActService:Save"/>
 
 
 </Routes>
