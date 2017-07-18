@@ -21,5 +21,23 @@ ClassMethod GetByIdOrCreate(id As %Integer) As Src.CleanCity.Data.Status
 	return result
 }
 
+/// Get result set by sql query
+ClassMethod GetResultSetByQuery(sql As %String) As %ResultSet
+{
+	set resultset = ##class(%ResultSet).%New("%DynamicQuery:SQL")
+	do resultset.Prepare(sql)
+	do resultset.%Execute()
+	
+	return resultset
+}
+
+ClassMethod GetResultSetAll() As %ResultSet
+{
+	set sql = "SELECT ID FROM Src_CleanCity_Data.Status"
+	set result = ..GetResultSetByQuery(sql)
+	
+	return result
+}
+
 }
 

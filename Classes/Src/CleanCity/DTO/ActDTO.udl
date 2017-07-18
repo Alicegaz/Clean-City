@@ -1,0 +1,21 @@
+Class Src.CleanCity.DTO.ActDTO Extends %RegisteredObject
+{
+
+Property id As %Integer;
+
+Property name As %String;
+
+Property phone As %String;
+
+Property email As %String;
+
+Property content As %String;
+
+Property area As Src.CleanCity.Data.Area;
+
+Property status As Src.CleanCity.Data.Status;
+
+Property category As Src.CleanCity.Data.Category;
+
+}
+

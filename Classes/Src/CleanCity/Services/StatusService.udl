@@ -1,12 +1,13 @@
-Class Src.CleanCity.Services.ActService Extends Src.CleanCity.Services.BaseService
+Class Src.CleanCity.Services.StatusService Extends Src.CleanCity.Services.BaseService
 {
 
 ClassMethod GetById(id As %Integer) As %Status
 {
+
 	set status = $$$OK
 	try
 	{
-		set dto = ##class(Src.CleanCity.Logic.ActLogic).GetById(id)
+		set dto = ##class(Src.CleanCity.Logic.StatusLogic).GetById(id)
 		set status = ##class(%ZEN.Auxiliary.jsonProvider).%ObjectToJSON(dto)
 	}
 	catch ex {
@@ -18,10 +19,11 @@ ClassMethod GetById(id As %Integer) As %Status
 ClassMethod GetAll() As %Status
 {
 	set status = $$$OK
-	try
+	try 
 	{
-		set dto = ##class(Src.CleanCity.Logic.ActLogic).GetAll()
-		set status = ##class(%ZEN.Auxiliary.jsonProvider).%ObjectToJSON(dto)
+		set dtoList = ##class(Src.CleanCity.Logic.StatusLogic).GetAll()
+		set status = ##class(%ZEN.Auxiliary.jsonProvider).%ObjectToJSON(dtoList)
+		
 	}
 	catch ex {
 		set status = ex.AsStatus()
