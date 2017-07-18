@@ -6,10 +6,10 @@ XData UrlMap
 <Routes>
 
 <!-- Получить категорию по ID -->
-<Route Url="/category/:id" Method="GET" Call="Src.CleanCity.Services.CategoryService:GetCategory"/>
+<Route Url="/category/:id" Method="GET" Call="Src.CleanCity.Services.CategoryService:GetById"/>
 
 <!-- Получить все категории -->
-<Route Url="/category-list" Method="GET" Call="Src.CleanCity.Web.CategoryService:GetCategories"/>
+<Route Url="/category-list" Method="GET" Call="Src.CleanCity.Services.CategoryService:GetAll"/>
 
 <!-- Получить обращение по ID -->
 <Route Url="/act/:id" Method="GET" Call="Src.CleanCity.Web.ActService:GetAct"/>
@@ -18,16 +18,16 @@ XData UrlMap
 <Route Url="/act-list" Method="GET" Call="Src.CleanCity.Web.ActService:GetActs"/>
 
 <!-- Получить организацию по  ID-->
-<Route Url="/responsible/:id" Method="GET" Call="Src.CleanCity.Web.ResponsibleService:GetResponsible"/>
+<Route Url="/responsible/:id" Method="GET" Call="Src.CleanCity.Services.ResponsibleService:GetById"/>
 
 <!-- Получить все организации-->
-<Route Url="/responsible-list" Method="GET" Call="Src.CleanCity.Web.ResponsibleService:GetResponsibles"/>
+<Route Url="/responsible-list" Method="GET" Call="Src.CleanCity.Services.ResponsibleService:GetAll"/>
 
 <!-- Получить область по  ID-->
-<Route Url="/area/:id" Method="GET" Call="Src.CleanCity.Web.AreaService:GetArea"/>
+<Route Url="/area/:id" Method="GET" Call="Src.CleanCity.Services.AreaService:GetById"/>
 
 <!-- Получить все области-->
-<Route Url="/area-list" Method="GET" Call="Src.CleanCity.Web.AreaService:GetAreas"/>
+<Route Url="/area-list" Method="GET" Call="Src.CleanCity.Services.AreaService:GetAll"/>
 
 
 

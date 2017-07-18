@@ -13,5 +13,28 @@ ClassMethod GetById(id As %Integer) As Src.CleanCity.DTO.CategoryDTO
 	return dto
 }
 
+ClassMethod GetByObject(obj As Src.CleanCity.Data.Category) As Src.CleanCity.DTO.CategoryDTO
+{
+	set result = ##class(Src.CleanCity.DTO.CategoryDTO).%New()
+ 	set result.id = obj.%Id()
+ 	set result.name = obj.Name
+ 
+ 	return result
+}
+
+ClassMethod GetAll() As %ListOfObjects
+{
+	set rs = ##class(Src.CleanCity.DAL.Categories).GetResultSetAll()
+ 
+ 	set result = ##class(%ListOfObjects).%New()
+ 	
+ 	while (rs.%Next() '= 0){
+	 	
+  		set obj = rs.GetObject()
+		do result.Insert(..GetByObject(obj))
+ 	}
+ 	return result
+}
+
 }
 
