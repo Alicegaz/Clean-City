@@ -6,7 +6,7 @@ XData UrlMap
 <Routes>
 
 <!-- Получить категорию по ID -->
-<Route Url="/category/:id" Method="GET" Call="Src.CleanCity.Web.CategoryService:GetCategory"/>
+<Route Url="/category/:id" Method="GET" Call="Src.CleanCity.Services.CategoryService:GetCategory"/>
 
 <!-- Получить все категории -->
 <Route Url="/category-list" Method="GET" Call="Src.CleanCity.Web.CategoryService:GetCategories"/>

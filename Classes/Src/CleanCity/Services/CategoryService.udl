@@ -1,0 +1,20 @@
+Class Src.CleanCity.Services.CategoryService Extends Src.CleanCity.Services.BaseService
+{
+
+ClassMethod GetCategory(id As %Integer) As %Status
+{
+
+	set status = $$$OK
+	try
+	{
+		set dto = ##class(Src.CleanCity.Logic.CategoryLogic).GetById(id)
+		set status = ##class(%ZEN.Auxiliary.jsonProvider).%ObjectToJSON(dto)
+	}
+	catch ex {
+		set status = ex.AsStatus()
+	}
+	return status
+}
+
+}
+
