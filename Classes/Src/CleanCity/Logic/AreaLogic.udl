@@ -1,0 +1,53 @@
+Class Src.CleanCity.Logic.AreaLogic Extends %Persistent
+{
+
+ClassMethod GetById(id As %Integer) As Src.CleanCity.DTO.AreaDTO
+{
+	set object = ##class(Src.CleanCity.DAL.Area).GetById(id)
+	
+	set dto = ##class(Src.CleanCity.DTO.AreaDTO).%New()
+	
+	set dto.id = object.%Id()
+	set dto.name = object.Responsible
+	
+	return dto
+}
+
+ClassMethod GetAll() As %ListOfObjects
+{
+	
+	set rs = ##class(Src.CleanCity.DAL.Area).GetAll()
+	set result = ##class(%ListOfObjects).%New()
+	while (rs.%Next() '=0) {
+		set obj = rs.GetObject()
+		do result.Insert(..GetShortView(obj))
+		
+	}	
+	return result
+}
+
+ClassMethod GetShortView(obj As Src.CleanCity.DAL.Area) As Src.CleanCity.DAL.Area
+{
+  set result = ##class(Src.CleanCity.Data.Area).%New()
+  set result.id = obj.%Id()
+  set result.name = obj.%Name
+  return result
+}
+
+Storage Default
+{
+<Data name="AreaLogicDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+</Data>
+<DataLocation>^Src.CleanCity.Logic.AreaLogicD</DataLocation>
+<DefaultData>AreaLogicDefaultData</DefaultData>
+<IdLocation>^Src.CleanCity.Logic.AreaLogicD</IdLocation>
+<IndexLocation>^Src.CleanCity.Logic.AreaLogicI</IndexLocation>
+<StreamLocation>^Src.CleanCity.Logic.AreaLogicS</StreamLocation>
+<Type>%Library.CacheStorage</Type>
+}
+
+}
+

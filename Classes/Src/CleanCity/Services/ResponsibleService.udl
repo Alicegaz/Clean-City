@@ -1,5 +1,33 @@
 Class Src.CleanCity.Services.ResponsibleService Extends Src.CleanCity.Services.BaseService
 {
 
+ClassMethod GetById(id As %Integer) As %Status
+{
+	set status = $$$OK
+	try
+	{
+		set dto = ##class(Src.CleanCity.Logic.ResponsibleLogic).GetById(id)
+		set status = ##class(%ZEN.Auxiliary.jsonProvider).%ObjectToJSON(dto)
+	}
+	catch ex {
+		set status = ex.AsStatus()
+	}
+	return status
+}
+
+ClassMethod GetAll() As %Status
+{
+	set status = $$$OK
+	try
+	{
+		set dto = ##class(Src.CleanCity.Logic.ResponsibleLogic).GetAll()
+		set status = ##class(%ZEN.Auxiliary.jsonProvider).%ObjectToJSON(dto)
+	}
+	catch ex {
+		set status = ex.AsStatus()
+	}
+	return status
+}
+
 }
 

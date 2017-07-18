@@ -1,0 +1,55 @@
+Class Src.CleanCity.Logic.ResponsibleLogic Extends %Persistent
+{
+
+ClassMethod GetById(id As %Integer) As Src.CleanCity.DTO.ResponsibleDTO
+{
+	set object = ##class(Src.CleanCity.DAL.Responsible).GetById(id)
+	
+	set dto = ##class(Src.CleanCity.DTO.ResponsibleDTO).%New()
+	
+	set dto.id = object.%Id()
+	set dto.name = object.Name
+	set dto.phone = object.Phone
+	set dto.email = object.Email
+	
+	return dto
+}
+
+ClassMethod GetAll() As %ListOfObjects
+{
+	
+	set rs = ##class(Src.CleanCity.DAL.Responsible).GetAll()
+	set result = ##class(%ListOfObjects).%New()
+	while (rs.%Next() '=0) {
+		set obj = rs.GetObject()
+		do result.Insert(..GetShortView(obj))
+		
+	}	
+	return result
+}
+
+ClassMethod GetShortView(obj As Src.CleanCity.DAL.Responsible) As Src.CleanCity.DAL.Responsible
+{
+  set result = ##class(Src.CleanCity.Data.Responsible).%New()
+  set result.id = obj.%Id()
+  set result.name = obj.%Name
+  return result
+}
+
+Storage Default
+{
+<Data name="ResponsibleLogicDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+</Data>
+<DataLocation>^Src.CleanC8035.Responsible804AD</DataLocation>
+<DefaultData>ResponsibleLogicDefaultData</DefaultData>
+<IdLocation>^Src.CleanC8035.Responsible804AD</IdLocation>
+<IndexLocation>^Src.CleanC8035.Responsible804AI</IndexLocation>
+<StreamLocation>^Src.CleanC8035.Responsible804AS</StreamLocation>
+<Type>%Library.CacheStorage</Type>
+}
+
+}
+

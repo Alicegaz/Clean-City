@@ -1,0 +1,13 @@
+Class Src.CleanCity.DTO.ResponsibleDTO Extends %RegisteredObject
+{
+
+Property id As %Integer;
+
+Property name As %String;
+
+Property phone As %String;
+
+Property email As %String;
+
+}
+

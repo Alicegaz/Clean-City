@@ -1,0 +1,9 @@
+Class Src.CleanCity.DTO.AreaDTO Extends %RegisteredObject
+{
+
+Property id As %Integer;
+
+Property responsible As %String;
+
+}
+
