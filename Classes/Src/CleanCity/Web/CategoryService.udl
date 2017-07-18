@@ -1,14 +1,19 @@
 Class Src.CleanCity.Web.CategoryService
 {
 
-ClassMethod GetCategory(id As %String) As %Status
+ClassMethod GetCategory(id As %Integer) As %Status
 {
-	
-	set proxy = ##class(%ZEN.proxyObject).%New()
-	set proxy.id = id
-	set proxy.name = "уборка"
-	
-	quit proxy.%ToJSON()
+
+	set status = $$$OK
+	try
+	{
+		set dto = ##class(Src.CleanCity.Logic.CategoryLogic).GetById(id)
+		set status = ##class(%ZEN.Auxiliary.jsonProvider).%ObjectToJSON(dto)
+	}
+	catch ex {
+		set status = ex.AsStatus()
+	}
+	return status
 }
 
 ClassMethod GetCategories() As %Status
