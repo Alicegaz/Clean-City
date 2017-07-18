@@ -5,5 +5,7 @@ Property id As %Integer;
 
 Property responsible As %String;
 
+Property geoPoints As list Of Src.CleanCity.DTO.GeoPointDTO;
+
 }
 
