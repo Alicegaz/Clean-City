@@ -28,9 +28,9 @@ ClassMethod GetAll() As %ListOfObjects
 	return result
 }
 
-ClassMethod GetShortView(obj As Src.CleanCity.DAL.Responsible) As Src.CleanCity.DAL.Responsible
+ClassMethod GetShortView(obj As Src.CleanCity.Data.Responsible) As Src.CleanCity.DTO.ResponsibleDTO
 {
-  set result = ##class(Src.CleanCity.Data.Responsible).%New()
+  set result = ##class(Src.CleanCity.DTO.ResponsibleDTO).%New()
   set result.id = obj.%Id()
   set result.name = obj.%Name
   return result

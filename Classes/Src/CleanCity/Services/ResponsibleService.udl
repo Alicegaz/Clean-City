@@ -29,18 +29,5 @@ ClassMethod GetAll() As %Status
 	return status
 }
 
-ClassMethod Save() As %Status
-{
-	set status = $$$OK
-	try
-	{
-		
-	}
-	catch ex {
-		set status = ex.AsStatus()
-	}
-	return status
-}
-
 }
 

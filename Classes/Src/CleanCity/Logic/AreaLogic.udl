@@ -1,3 +1,5 @@
+Include Src.Utils.Macro
+
 Class Src.CleanCity.Logic.AreaLogic Extends %Persistent
 {
 
@@ -8,7 +10,7 @@ ClassMethod GetById(id As %Integer) As Src.CleanCity.DTO.AreaDTO
 	set dto = ##class(Src.CleanCity.DTO.AreaDTO).%New()
 	
 	set dto.id = object.%Id()
-	set dto.name = object.Responsible
+	set dto.responsible = object.Responsible
 	
 	return dto
 }
@@ -26,11 +28,19 @@ ClassMethod GetAll() As %ListOfObjects
 	return result
 }
 
-ClassMethod GetShortView(obj As Src.CleanCity.DAL.Area) As Src.CleanCity.DAL.Area
+ClassMethod GetShortView(obj As Src.CleanCity.Data.Area) As Src.CleanCity.DTO.AreaDTO
 {
-  set result = ##class(Src.CleanCity.Data.Area).%New()
+  set result = ##class(Src.CleanCity.DTO.AreaDTO).%New()
   set result.id = obj.%Id()
-  set result.name = obj.%Name
+  set result.responsible = obj.Responsible
+  set result.geoPoints = ##class(%ListOfObjects).%New()
+  for i=1:1:obj.GeoPoints.Count(){
+	  set point = obj.GeoPoints.GetAt(i)
+	  set pointDto = ##class(Src.CleanCity.DTO.GeoPointDTO).%New()
+	  set pointDto.lalitude = point.Latitude
+	  set pointDto.longitude = point.Longitude
+	  $$$do(result.geoPoints.Insert(pointDto))
+  }
   return result
 }
 
