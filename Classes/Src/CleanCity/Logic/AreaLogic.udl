@@ -47,9 +47,6 @@ ClassMethod GetByObject(obj As Src.CleanCity.Data.Area) As Src.CleanCity.DTO.Are
 ClassMethod Save(dto As Src.CleanCity.DTO.AreaDTO)
 {
 	set result = ##class(Src.CleanCity.DAL.Area).GetByIdOrCreate(dto.id)
-	
- 	
- 	//set result.Responsible = dto.responsible
  	
  	for i=1:1:dto.geoPoints.Count() {
 	 set point = dto.geoPoints.GetAt(i)
@@ -58,8 +55,7 @@ ClassMethod Save(dto As Src.CleanCity.DTO.AreaDTO)
 	 set pointDto.Longitude = point.longitude
 	 $$$do(result.GeoPoints.Insert(pointDto))	
  	}
- 	set resp = ##class(Src.CleanCity.DAL.Responsible).GetById(dto.responsible.id)
- 	set result.Responsible = resp.%Id()	
+ 	set result.Responsible = ##class(Src.CleanCity.DAL.Responsible).GetById(dto.responsible.id)
  	do ##class(Src.CleanCity.DAL.Area).Save(result)
 }
 
