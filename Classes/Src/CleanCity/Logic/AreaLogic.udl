@@ -8,7 +8,7 @@ ClassMethod GetById(id As %Integer) As Src.CleanCity.DTO.AreaDTO
 	set dto = ##class(Src.CleanCity.DTO.AreaDTO).%New()
 	
 	set dto.id = object.%Id()
-	set dto.responsible = ##class(Src.CleanCity.ResponsibleLogic).GetByObject(object.Responsible)
+	set dto.responsible = ##class(Src.CleanCity.Logic.ResponsibleLogic).GetByObject(object.Responsible)
 	
 	return dto
 }
@@ -30,7 +30,7 @@ ClassMethod GetByObject(obj As Src.CleanCity.Data.Area) As Src.CleanCity.DTO.Are
 {
   set result = ##class(Src.CleanCity.DTO.AreaDTO).%New()
   set result.id = obj.%Id()
-  set result.responsible = ##class(Src.CleanCity.ResponsibleLogic).GetByObject(obj.Responsible)
+  set result.responsible = ##class(Src.CleanCity.Logic.ResponsibleLogic).GetByObject(obj.Responsible)
   set result.geoPoints = ##class(%ListOfObjects).%New()
   for i=1:1:obj.GeoPoints.Count(){
 	  set point = obj.GeoPoints.GetAt(i)
@@ -65,7 +65,7 @@ ClassMethod Delete(id As %Integer)
 	}
 	else
 	{
-		$$$throw("Вы не можете удалить зону, на которую поступило хоть одно обращение")
+		$$$throw("Вы не можете удалить зону, если на нее поступило хоть одно обращение")
 	}
 }
 
