@@ -1,7 +1,7 @@
 controllersModule.controller('mainController', function ($scope, $compile, AreaSrvc) {
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 56, lng: 92},
-    zoom: 8
+    center: {lat: 56.079639, lng: 92.968316},
+    zoom: 11
   });
   AreaSrvc.getAll().then(
 	  function(response){
@@ -22,10 +22,10 @@ controllersModule.controller('mainController', function ($scope, $compile, AreaS
     			fillColor: '#FF0000',
    				fillOpacity: 0.35
              });
-        var contentString = 'Наименование организации: ' + area.responsible.name + '<br/>' +
-        ' Телефон: ' + area.responsible.phone + '<br/>'+ 
-        'E-mail: ' + area.responsible.email + '<br/>'+ 
-        '<a class="btn btn-default" onclick="window.location.hash=\'!/newAct/'+area.id+'\'">qwe</a>';
+        var contentString = '<h3>Ответственная организация</h3>'+'<div style="margin-top: 5px;">Наименование организации: ' + area.responsible.name + '</div>' +
+        '<div class="w3-margin-top">Телефон: ' + area.responsible.phone + '</div>'+ 
+        '<div class="w3-margin-top">E-mail: ' + area.responsible.email + '</div>'+ 
+        '<a class="w3-button w3-white w3-border w3-border-black w3-round-large w3-margin-top" onclick="window.location.hash=\'!/newAct/'+area.id+'\'">Создать обращение</a>';
 		var infowindow = new google.maps.InfoWindow({
 			 content: contentString
 		});
