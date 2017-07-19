@@ -10,7 +10,7 @@ ClassMethod GetById(id As %Integer) As Src.CleanCity.DTO.AreaDTO
 	set dto = ##class(Src.CleanCity.DTO.AreaDTO).%New()
 	
 	set dto.id = object.%Id()
-	set dto.responsible = object.Responsible
+	set dto.responsible = ##class(Src.CleanCity.ResponsibleLogic).GetByObject(object.Responsible)
 	
 	return dto
 }
@@ -22,17 +22,17 @@ ClassMethod GetAll() As %ListOfObjects
 	set result = ##class(%ListOfObjects).%New()
 	while (rs.%Next() '=0) {
 		set obj = rs.GetObject()
-		do result.Insert(..GetShortView(obj))
+		do result.Insert(..GetByObject(obj))
 		
 	}	
 	return result
 }
 
-ClassMethod GetShortView(obj As Src.CleanCity.Data.Area) As Src.CleanCity.DTO.AreaDTO
+ClassMethod GetByObject(obj As Src.CleanCity.Data.Area) As Src.CleanCity.DTO.AreaDTO
 {
   set result = ##class(Src.CleanCity.DTO.AreaDTO).%New()
   set result.id = obj.%Id()
-  set result.responsible = obj.Responsible
+  set result.responsible = ##class(Src.CleanCity.ResponsibleLogic).GetByObject(obj.Responsible)
   set result.geoPoints = ##class(%ListOfObjects).%New()
   for i=1:1:obj.GeoPoints.Count(){
 	  set point = obj.GeoPoints.GetAt(i)
@@ -46,9 +46,10 @@ ClassMethod GetShortView(obj As Src.CleanCity.Data.Area) As Src.CleanCity.DTO.Ar
 
 ClassMethod Save(dto As Src.CleanCity.DTO.AreaDTO)
 {
-	set obj = ##class(Src.CleanCity.DAL.Area).GetByIdOrCreate(dto.id)
+	set result = ##class(Src.CleanCity.DAL.Area).GetByIdOrCreate(dto.id)
+	
  	
- 	//set obj.Responsible = dto.responsible
+ 	//set result.Responsible = dto.responsible
  	
  	for i=1:1:dto.geoPoints.Count() {
 	 set point = dto.geoPoints.GetAt(i)
@@ -57,9 +58,9 @@ ClassMethod Save(dto As Src.CleanCity.DTO.AreaDTO)
 	 set pointDto.Longitude = point.longitude
 	 $$$do(result.GeoPoints.Insert(pointDto))	
  	}
- 	
-
- 	do ##class(Src.CleanCity.DAL.Area).Save(obj)
+ 	set resp = ##class(Src.CleanCity.DAL.Responsible).GetById(dto.responsible.id)
+ 	set result.Responsible = resp.%Id()	
+ 	do ##class(Src.CleanCity.DAL.Area).Save(result)
 }
 
 Storage Default
