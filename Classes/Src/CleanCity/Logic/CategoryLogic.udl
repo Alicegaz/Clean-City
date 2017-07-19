@@ -41,6 +41,7 @@ ClassMethod Save(data As Src.CleanCity.DTO.CategoryDTO)
 	set obj = ##class(Src.CleanCity.DAL.Categories).GetByIdOrCreate(data.id)
  	
  	set obj.Name = data.name
+ 	
 
  	do ##class(Src.CleanCity.DAL.Categories).Save(obj)
 }
