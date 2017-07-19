@@ -29,5 +29,10 @@ ClassMethod GetAll() As %ResultSet
 	return result
 }
 
+ClassMethod Delete(id)
+{
+	$$$do(##class(Src.CleanCity.Data.Area).%DeleteId(id))
+}
+
 }
 

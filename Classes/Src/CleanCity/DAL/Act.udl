@@ -57,5 +57,10 @@ ClassMethod GetResultSetAll() As %ResultSet
 	return result
 }
 
+ClassMethod Delete(id)
+{
+	$$$do(##class(Src.CleanCity.Data.Act).%DeleteId(id))
+}
+
 }
 
