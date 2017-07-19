@@ -1,0 +1,15 @@
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+<div class="w3-row-padding w3-margin-bottom">
+<div class="w3-container">
+    <h5>Êàòåãîðèè</h5>
+    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+        <tr ng-repeat="area in vm.areas">
+            <td>{{area.responsible}}</td>
+            <td ng-repeat="point in area.geoPoints">({{point.latitude}}, {{point.longitude}})</td>
+            <td><a href="#" ng-click="vm.edit(area)"><span class="glyphicon glyphicon-pensil"></span></a></td>
+            <td><a href="#" ng-click="vm.delete(area)"><span class="glyphicon glyphicon-trash"></span></a></td>
+        </tr>
+    </table>
+</div>
+</div>
+</div>
