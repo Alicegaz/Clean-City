@@ -54,13 +54,11 @@ ClassMethod Save(data As Src.CleanCity.DTO.ResponsibleDTO)
 ClassMethod Delete(id As %Integer)
 {
 	set resp = ##class(Src.CleanCity.DAL.Responsible).GetById(id)
-	if (resp.Areas.Count() = 0) {
-		do ##class(Src.CleanCity.DAL.Responsible).Delete(id)
+	if (resp.Areas.Count() '= 0) {
+		$$$throw("You can't delete responsible with at least one area")
 	}
-	else
-	{
-		$$$throw("Вы не можете удалить ответственного, если ему принадлежит хоть одна зона")
-	}
+	
+	do ##class(Src.CleanCity.DAL.Responsible).Delete(id)
 }
 
 Storage Default

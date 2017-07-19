@@ -67,13 +67,12 @@ ClassMethod Save(dto As Src.CleanCity.DTO.AreaDTO)
 ClassMethod Delete(id As %Integer)
 {
 	set area = ##class(Src.CleanCity.DAL.Area).GetById(id)
-	if (area.Acts.Count() = 0) {
-		do ##class(Src.CleanCity.DAL.Area).Delete(id)
+	if (area.Acts.Count() '= 0) {
+		$$$throw("You can't delete area with at least one connetion")
 	}
-	else
-	{
-		$$$throw("Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ СѓРґР°Р»РёС‚СЊ Р·РѕРЅСѓ, РµСЃР»Рё РЅР° РЅРµРµ РїРѕСЃС‚СѓРїРёР»Рѕ С…РѕС‚СЊ РѕРґРЅРѕ РѕР±СЂР°С‰РµРЅРёРµ")
-	}
+	
+	
+	do ##class(Src.CleanCity.DAL.Area).Delete(id)
 }
 
 Storage Default
