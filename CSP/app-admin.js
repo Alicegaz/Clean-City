@@ -27,13 +27,43 @@ adminModule.config(function ($routeProvider, $httpProvider) {
 	  controller: 'EditCatController',
 	  controllerAs: 'vm'
   })
+	.when('/area/edit/:id', {
+	  templateUrl: 'pages/admin/editArea.csp',
+	  controller: 'EditAreaController',
+	  controllerAs: 'vm'
+  })
+  .when('/area/edit', {
+	  templateUrl: 'pages/admin/editArea.csp',
+	  controller: 'EditAreaController',
+	  controllerAs: 'vm'
+  })
+  .when('/area', {
+	  templateUrl: 'pages/admin/area.csp',
+	  controller: 'AreaController',
+	  controllerAs: 'vm'
+  })
+  .when('/responsible/edit/:id', {
+	  templateUrl: 'pages/admin/editResponsible.csp',
+	  controller: 'EditResponsibleController',
+	  controllerAs: 'vm'
+  })
+  .when('/responsible/edit', {
+	  templateUrl: 'pages/admin/editResponsible.csp',
+	  controller: 'EditResponsibleController',
+	  controllerAs: 'vm'
+  })
+  .when('/responsible', {
+	  templateUrl: 'pages/admin/responsible.csp',
+	  controller: 'ResponsibleController',
+	  controllerAs: 'vm'
+  })
   ;
 
   $routeProvider.otherwise({
     redirectTo: '/'
   });
 });
-adminModule.controller('adminController', function ($scope, $http) {
+adminModule.controller('adminController', function ($scope, $http, $location) {
 		var vm = this;
 	
 		// Get the Sidebar

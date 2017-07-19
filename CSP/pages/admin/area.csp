@@ -1,13 +1,16 @@
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 <div class="w3-row-padding w3-margin-bottom">
 <div class="w3-container">
-    <h5>Êàòåãîðèè</h5>
+<div class="w3-bar w3-border w3-light-grey">
+  <div class="w3-bar-item w3-button">Территории</div>
+  <a href="admin.csp#!/area/edit" class="w3-bar-item w3-button w3-green w3-right"><span class="fa fa-plus"></span></a>
+</div>
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
         <tr ng-repeat="area in vm.areas">
             <td>{{area.responsible}}</td>
             <td ng-repeat="point in area.geoPoints">({{point.latitude}}, {{point.longitude}})</td>
-            <td><a href="#" ng-click="vm.edit(area)"><span class="glyphicon glyphicon-pensil"></span></a></td>
-            <td><a href="#" ng-click="vm.delete(area)"><span class="glyphicon glyphicon-trash"></span></a></td>
+            <td><a href="#" ng-click="vm.edit(area)"><span class="fa fa-pencil"></span></a></td>
+            <td><a href="#" ng-click="vm.delete(area)"><span class="fa fa-trash"></span></a></td>
         </tr>
     </table>
 </div>

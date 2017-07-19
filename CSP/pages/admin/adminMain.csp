@@ -8,20 +8,20 @@
       <div class="w3-block w3-container w3-button w3-ripple w3-red w3-padding-16" style="height: 168px;">
         <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>52</h3>
+          <h3></h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>Категории</h4>
+        <h4>РљР°С‚РµРіРѕСЂРёРё</h4>
       </div>
     </a>
-    <a href="/territory" class="w3-quarter">
+    <a href="admin.csp#!/area" class="w3-quarter">
       <div class="w3-block w3-container w3-button w3-ripple w3-blue w3-padding-16" style="height: 168px;">
         <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
         <div class="w3-right">
           <h3>99</h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>Закрепленные территории</h4>
+        <h4>РўРµСЂСЂРёС‚РѕСЂРёРё</h4>
       </div>
     </a>
     <a href="/departments" class="w3-quarter">
@@ -31,17 +31,17 @@
           <h3>23</h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>Учреждения</h4>
+        <h4>РЈС‡СЂРµР¶РґРµРЅРёСЏ</h4>
       </div>
     </a>
     <a href="" class="w3-quarter">
       <div class="w3-block w3-container w3-button w3-ripple w3-orange w3-text-white w3-padding-16" style="height: 168px;">
         <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>50</h3>
+          <h3></h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>Обращения</h4>
+        <h4>РћР±СЂР°С‰РµРЅРёСЏ</h4>
       </div>
     </a>
   </div>

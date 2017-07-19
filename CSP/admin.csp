@@ -84,10 +84,13 @@ function w3_close() {
 	<script src="app-admin.js"></script>
 	<script src="controllers/CategoriesController.js"></script>
 	<script src="controllers/EditCatController.js"></script>
+	<script src="controllers/EditAreaController.js"></script>
+	<script src="controllers/AreaController.js"></script>
 	<script src="services/AreaSrvc.js"></script>
 	<script src="services/CategorySrvc.js"></script>
 	<script src="services/FlashService.js"></script>
 	<script src="services/ModalService.js"></script>
+	<script src="services/ResponsibleSrvc.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="lib/angular-1.6.5/angular.min.js"></script>
 </body>

@@ -11,15 +11,17 @@
         vm.category = null;
         vm.save = save;
         vm.reset = reset;
-        
+        vm.saved = false;
         
         function loadCategory()
         {
+	        if($routeParams.id){
             CatSrvc.getOne($routeParams.id).then(function(response)
             {
                 vm.category = response.data;
-                console.log(vm.category);
+                console.log(vm.category.name);
             });
+	        }
         }
         
         loadCategory();
@@ -30,6 +32,7 @@
             .then(function() {
                     $timeout(function(){
                         loadCategory();
+                        vm.saved = true;
                     }, 300);
                 })
         }
