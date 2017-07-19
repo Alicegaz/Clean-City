@@ -3,7 +3,7 @@ Class Src.CleanCity.DTO.AreaDTO Extends %RegisteredObject
 
 Property id As %Integer;
 
-Property responsible As %String;
+Property responsible As Src.CleanCity.DTO.ResponsibleDTO;
 
 Property geoPoints As list Of Src.CleanCity.DTO.GeoPointDTO;
 

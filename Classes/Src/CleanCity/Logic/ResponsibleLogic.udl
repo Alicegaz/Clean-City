@@ -1,4 +1,4 @@
-Class Src.CleanCity.Logic.ResponsibleLogic Extends %Persistent
+Class Src.CleanCity.Logic.ResponsibleLogic Extends BaseLogic
 {
 
 ClassMethod GetById(id As %Integer) As Src.CleanCity.DTO.ResponsibleDTO
@@ -22,13 +22,13 @@ ClassMethod GetAll() As %ListOfObjects
 	set result = ##class(%ListOfObjects).%New()
 	while (rs.%Next() '=0) {
 		set obj = rs.GetObject()
-		do result.Insert(..GetShortView(obj))
+		do result.Insert(..GetByObject(obj))
 		
 	}	
 	return result
 }
 
-ClassMethod GetShortView(obj As Src.CleanCity.Data.Responsible) As Src.CleanCity.DTO.ResponsibleDTO
+ClassMethod GetByObject(obj As Src.CleanCity.Data.Responsible) As Src.CleanCity.DTO.ResponsibleDTO
 {
   set result = ##class(Src.CleanCity.DTO.ResponsibleDTO).%New()
   set result.id = obj.%Id()
@@ -47,6 +47,18 @@ ClassMethod Save(data As Src.CleanCity.DTO.ResponsibleDTO)
  	set obj.Email = data.email 
 
  	do ##class(Src.CleanCity.DAL.Responsible).Save(obj)
+}
+
+ClassMethod Delete(id As %Integer)
+{
+	set resp = ##class(Src.CleanCity.DAL.Responsible).GetById(id)
+	if (resp.Areas.Count() = 0) {
+		do ##class(Src.CleanCity.DAL.Responsible).Delete(id)
+	}
+	else
+	{
+		$$$throw("Вы не можете удалить ответственного, которому принадлежит хоть один участок")
+	}
 }
 
 Storage Default
