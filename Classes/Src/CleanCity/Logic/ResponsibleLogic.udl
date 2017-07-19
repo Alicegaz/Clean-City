@@ -1,4 +1,4 @@
-Class Src.CleanCity.Logic.ResponsibleLogic Extends %Persistent
+Class Src.CleanCity.Logic.ResponsibleLogic Extends BaseLogic
 {
 
 ClassMethod GetById(id As %Integer) As Src.CleanCity.DTO.ResponsibleDTO
@@ -47,6 +47,18 @@ ClassMethod Save(data As Src.CleanCity.DTO.ResponsibleDTO)
  	set obj.Email = data.email 
 
  	do ##class(Src.CleanCity.DAL.Responsible).Save(obj)
+}
+
+ClassMethod Delete(id As %Integer)
+{
+	set resp = ##class(Src.CleanCity.DAL).GetById(id)
+	if (resp.Areas.Count() = 0) {
+		
+	}
+	else
+	{
+		
+	}
 }
 
 Storage Default

@@ -1,6 +1,4 @@
-Include Src.Utils.Macro
-
-Class Src.CleanCity.Logic.AreaLogic Extends %Persistent
+Class Src.CleanCity.Logic.AreaLogic Extends BaseLogic
 {
 
 ClassMethod GetById(id As %Integer) As Src.CleanCity.DTO.AreaDTO
