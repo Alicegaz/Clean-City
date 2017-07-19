@@ -32,7 +32,9 @@ ClassMethod GetByObject(obj As Src.CleanCity.Data.Responsible) As Src.CleanCity.
 {
   set result = ##class(Src.CleanCity.DTO.ResponsibleDTO).%New()
   set result.id = obj.%Id()
-  set result.name = obj.%Name
+  set result.name = obj.Name
+  set result.phone = obj.Phone
+  set result.email = obj.Email
   return result
 }
 
@@ -52,28 +54,11 @@ ClassMethod Save(data As Src.CleanCity.DTO.ResponsibleDTO)
 ClassMethod Delete(id As %Integer)
 {
 	set resp = ##class(Src.CleanCity.DAL.Responsible).GetById(id)
-	if (resp.Areas.Count() = 0) {
-		do ##class(Src.CleanCity.DAL.Responsible).Delete(id)
+	if (resp.Areas.Count() '= 0) {
+		$$$throw("You can't delete responsible with at least one area")
 	}
-	else
-	{
-		$$$throw("Вы не можете удалить ответственного, которому принадлежит хоть один участок")
-	}
-}
-
-Storage Default
-{
-<Data name="ResponsibleLogicDefaultData">
-<Value name="1">
-<Value>%%CLASSNAME</Value>
-</Value>
-</Data>
-<DataLocation>^Src.CleanC8035.Responsible804AD</DataLocation>
-<DefaultData>ResponsibleLogicDefaultData</DefaultData>
-<IdLocation>^Src.CleanC8035.Responsible804AD</IdLocation>
-<IndexLocation>^Src.CleanC8035.Responsible804AI</IndexLocation>
-<StreamLocation>^Src.CleanC8035.Responsible804AS</StreamLocation>
-<Type>%Library.CacheStorage</Type>
+	
+	do ##class(Src.CleanCity.DAL.Responsible).Delete(id)
 }
 
 }

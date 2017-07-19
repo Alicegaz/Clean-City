@@ -11,17 +11,12 @@ ClassMethod Save(entity As %Persistent)
 }
 
 /// Delete Entity
-ClassMethod Delete(id)
-{
-	$$$do(##class(Src.CleanCity.Data.Act).%DeleteId(id))
-}
-
 /// Get result set by sql query
 ClassMethod GetResultSetByQuery(sql As %String) As %ResultSet
 {
 	set resultset = ##class(%ResultSet).%New("%DynamicQuery:SQL")
-	do resultset.Prepare(sql)
-	do resultset.%Execute()
+	$$$do(resultset.Prepare(sql))
+	$$$do(resultset.%Execute())
 	
 	return resultset
 }

@@ -5,7 +5,5 @@ Property id As %Integer;
 
 Property name As %String;
 
-// Property objects As list Of Src.CleanCity.DTO.CategoryDTO;
-
 }
 
