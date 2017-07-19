@@ -32,7 +32,7 @@ ClassMethod GetByObject(obj As Src.CleanCity.Data.Responsible) As Src.CleanCity.
 {
   set result = ##class(Src.CleanCity.DTO.ResponsibleDTO).%New()
   set result.id = obj.%Id()
-  set result.name = obj.%Name
+  set result.name = obj.Name
   return result
 }
 
