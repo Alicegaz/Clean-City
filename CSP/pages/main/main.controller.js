@@ -22,8 +22,10 @@ controllersModule.controller('mainController', function ($scope, $compile, AreaS
     			fillColor: '#FF0000',
    				fillOpacity: 0.35
              });
-        var contentString = 'Наименование организации: ' + area.responsible.name + '<br/>' +' Телефон: '+ area.responsible.phone + '<br/>'+ 'E-mail: ' + 
-        area.responsible.email
+        var contentString = 'Наименование организации: ' + area.responsible.name + '<br/>' +
+        ' Телефон: ' + area.responsible.phone + '<br/>'+ 
+        'E-mail: ' + area.responsible.email + '<br/>'+ 
+        '<a class="btn btn-default" onclick="window.location.hash=\'!/newAct/'+area.id+'\'">qwe</a>';
 		var infowindow = new google.maps.InfoWindow({
 			 content: contentString
 		});

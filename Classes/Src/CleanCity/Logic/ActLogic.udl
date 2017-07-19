@@ -74,3 +74,5 @@ ClassMethod Delete(id As %Integer)
 	do ##class(Src.CleanCity.DAL.Act).Delete(id)
 }
 
+}
+
