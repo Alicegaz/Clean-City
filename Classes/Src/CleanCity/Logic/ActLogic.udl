@@ -1,4 +1,4 @@
-Class Src.CleanCity.Logic.ActLogic Extends %Persistent
+Class Src.CleanCity.Logic.ActLogic Extends Src.CleanCity.Logic.BaseLogic
 {
 
 ClassMethod GetById(id As %Integer) As Src.CleanCity.DTO.CategoryDTO
@@ -12,9 +12,9 @@ ClassMethod GetById(id As %Integer) As Src.CleanCity.DTO.CategoryDTO
 	set dto.phone = obj.Phone
 	set dto.email = obj.Email
 	set dto.content = obj.Content
-	set dto.area = obj.Area
-	set dto.status = obj.Status
-	set dto.category = obj.Category
+	set dto.area = ##class(Src.CleanCity.Logic.AreaLogic).GetShortView(obj.Area)
+	set dto.status = ##class(Src.CleanCity.Logic.StatusLogic).GetByObject(obj.Status)
+	set dto.category = ##class(Src.CleanCity.Logic.CategoryLogic).GetByObject(obj.Category)
 	
 	return dto
 }
@@ -28,9 +28,9 @@ ClassMethod GetByObject(obj As Src.CleanCity.Data.Category) As Src.CleanCity.DTO
 	set dto.phone = obj.Phone
 	set dto.email = obj.Email
 	set dto.content = obj.Content
-	set dto.area = obj.Area
-	set dto.status = obj.Status
-	set dto.category = obj.Category
+	set dto.area = ##class(Src.CleanCity.Logic.AreaLogic).GetShortView(obj.Area)
+	set dto.status = ##class(Src.CleanCity.Logic.StatusLogic).GetByObject(obj.Status)
+	set dto.category = ##class(Src.CleanCity.Logic.CategoryLogic).GetByObject(obj.Category)
  
  	return dto
 }
@@ -57,9 +57,12 @@ ClassMethod Save(data As Src.CleanCity.DTO.ActDTO)
 	set obj.Phone = data.phone
 	set obj.Email = data.email
 	set obj.Content = data.content
-	set obj.Area = data.area
-	set obj.Status = data.status
-	set obj.Category = data.category
+	
+ 	set obj.Area = ##class(Src.CleanCity.DAL.Area).GetById(data.area.id)
+	
+	set obj.Status = ##class(Src.CleanCity.DAL.Status).GetById(data.status.id)
+	
+	set obj.Category = ##class(Src.CleanCity.DAL.Categories).GetById(data.category.id)
 
  	do ##class(Src.CleanCity.DAL.Categories).Save(obj)
 }

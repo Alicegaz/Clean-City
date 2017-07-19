@@ -11,11 +11,11 @@ Property email As %String;
 
 Property content As %String;
 
-Property area As Src.CleanCity.Data.Area;
+Property area As Src.CleanCity.DTO.AreaDTO;
 
-Property status As Src.CleanCity.Data.Status;
+Property status As Src.CleanCity.DTO.StatusDTO;
 
-Property category As Src.CleanCity.Data.Category;
+Property category As Src.CleanCity.DTO.CategoryDTO;
 
 }
 
