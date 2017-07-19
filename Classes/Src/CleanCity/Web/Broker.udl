@@ -12,7 +12,7 @@ XData UrlMap
 
 <Route Url="/act-save" Method="POST" Call="Src.CleanCity.Services.ActService:Save"/>
 
-<Route Url="/act-delete/:id" Method="DELETE" Call="Src.CleanCity.Services.ActService:Delete"/>
+<Route Url="/act/:id" Method="DELETE" Call="Src.CleanCity.Services.ActService:Delete"/>
 
 
 
@@ -23,7 +23,7 @@ XData UrlMap
 
 <Route Url="/area-save" Method="POST" Call="Src.CleanCity.Services.AreaService:Save"/>
 
-<Route Url="/area-delete/:id" Method="DELETE" Call="Src.CleanCity.Services.AreaService:Delete"/>
+<Route Url="/area/:id" Method="DELETE" Call="Src.CleanCity.Services.AreaService:Delete"/>
 
 <!-- Category methods -->
 <Route Url="/category/:id" Method="GET" Call="Src.CleanCity.Services.CategoryService:GetById"/>
@@ -32,7 +32,7 @@ XData UrlMap
 
 <Route Url="/category-save" Method="POST" Call="Src.CleanCity.Services.CategoryService:Save"/>
 
-<Route Url="/category-delete/:id" Method="DELETE" Call="Src.CleanCity.Services.CategoryService:Delete"/>
+<Route Url="/category/:id" Method="DELETE" Call="Src.CleanCity.Services.CategoryService:Delete"/>
 
 
 <!-- Responsible methods -->
@@ -42,7 +42,7 @@ XData UrlMap
 
 <Route Url="/responsible-save" Method="POST" Call="Src.CleanCity.Services.ResponsibleService:Save"/>
 
-<Route Url="/responsible-delete/:id" Method="DELETE" Call="Src.CleanCity.Services.ResponsibleService:Delete"/>
+<Route Url="/responsible/:id" Method="DELETE" Call="Src.CleanCity.Services.ResponsibleService:Delete"/>
 <!-- Status methods -->
 <Route Url="/status/:id" Method="GET" Call="Src.CleanCity.Services.StatusService:GetById"/>
 
@@ -50,7 +50,7 @@ XData UrlMap
 
 <Route Url="/status-save" Method="POST" Call="Src.CleanCity.Services.StatusService:Save"/>
 
-<Route Url="/status-delete/:id" Method="DELETE" Call="Src.CleanCity.Services.StatusService:Delete"/>
+<Route Url="/status/:id" Method="DELETE" Call="Src.CleanCity.Services.StatusService:Delete"/>
 </Routes>
 }
 
