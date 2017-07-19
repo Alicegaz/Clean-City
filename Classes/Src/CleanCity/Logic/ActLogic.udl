@@ -67,6 +67,13 @@ ClassMethod Save(data As Src.CleanCity.DTO.ActDTO)
  	do ##class(Src.CleanCity.DAL.Categories).Save(obj)
 }
 
+ClassMethod Delete(id As %Integer)
+{
+	set act = ##class(Src.CleanCity.DAL.Act).GetById(id)
+
+	do ##class(Src.CleanCity.DAL.Act).Delete(id)
+}
+
 Storage Default
 {
 <Data name="ActLogicDefaultData">
