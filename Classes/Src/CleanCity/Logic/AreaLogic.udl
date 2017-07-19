@@ -75,20 +75,5 @@ ClassMethod Delete(id As %Integer)
 	do ##class(Src.CleanCity.DAL.Area).Delete(id)
 }
 
-Storage Default
-{
-<Data name="AreaLogicDefaultData">
-<Value name="1">
-<Value>%%CLASSNAME</Value>
-</Value>
-</Data>
-<DataLocation>^Src.CleanCity.Logic.AreaLogicD</DataLocation>
-<DefaultData>AreaLogicDefaultData</DefaultData>
-<IdLocation>^Src.CleanCity.Logic.AreaLogicD</IdLocation>
-<IndexLocation>^Src.CleanCity.Logic.AreaLogicI</IndexLocation>
-<StreamLocation>^Src.CleanCity.Logic.AreaLogicS</StreamLocation>
-<Type>%Library.CacheStorage</Type>
-}
-
 }
 

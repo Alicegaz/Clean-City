@@ -61,20 +61,5 @@ ClassMethod Delete(id As %Integer)
 	do ##class(Src.CleanCity.DAL.Responsible).Delete(id)
 }
 
-Storage Default
-{
-<Data name="ResponsibleLogicDefaultData">
-<Value name="1">
-<Value>%%CLASSNAME</Value>
-</Value>
-</Data>
-<DataLocation>^Src.CleanC8035.Responsible804AD</DataLocation>
-<DefaultData>ResponsibleLogicDefaultData</DefaultData>
-<IdLocation>^Src.CleanC8035.Responsible804AD</IdLocation>
-<IndexLocation>^Src.CleanC8035.Responsible804AI</IndexLocation>
-<StreamLocation>^Src.CleanC8035.Responsible804AS</StreamLocation>
-<Type>%Library.CacheStorage</Type>
-}
-
 }
 

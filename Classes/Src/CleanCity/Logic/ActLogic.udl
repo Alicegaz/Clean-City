@@ -74,20 +74,3 @@ ClassMethod Delete(id As %Integer)
 	do ##class(Src.CleanCity.DAL.Act).Delete(id)
 }
 
-Storage Default
-{
-<Data name="ActLogicDefaultData">
-<Value name="1">
-<Value>%%CLASSNAME</Value>
-</Value>
-</Data>
-<DataLocation>^Src.CleanCity.Logic.ActLogicD</DataLocation>
-<DefaultData>ActLogicDefaultData</DefaultData>
-<IdLocation>^Src.CleanCity.Logic.ActLogicD</IdLocation>
-<IndexLocation>^Src.CleanCity.Logic.ActLogicI</IndexLocation>
-<StreamLocation>^Src.CleanCity.Logic.ActLogicS</StreamLocation>
-<Type>%Library.CacheStorage</Type>
-}
-
-}
-
