@@ -11,6 +11,10 @@ mainModule.config(function ($routeProvider, $httpProvider) {
   $routeProvider.when('/', {
     templateUrl: 'pages/main/main.html',
     controller: 'mainController'
+  })
+  .when('/newAct/:areaId', {
+    templateUrl: 'pages/newAct/newAct.csp',
+    controller: 'newActController'
   });
 
   $routeProvider.otherwise({
