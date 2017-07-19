@@ -49,5 +49,24 @@ ClassMethod Save() As %Status
  	return status
 }
 
+ClassMethod Delete(id As %Integer) As %Status
+{
+	    TSTART
+ 	set status = $$$OK
+ 	try
+ 	{
+	 	
+	 	do ##class(Src.CleanCity.Logic.AreaLogic).Delete(id)
+        
+     	TCOMMIT
+ 	}
+ 	catch ex {
+  		set status = ex.AsStatus()
+  
+  	    TROLLBACK
+ 	}
+	return status
+}
+
 }
 

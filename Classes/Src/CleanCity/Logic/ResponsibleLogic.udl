@@ -51,13 +51,13 @@ ClassMethod Save(data As Src.CleanCity.DTO.ResponsibleDTO)
 
 ClassMethod Delete(id As %Integer)
 {
-	set resp = ##class(Src.CleanCity.DAL).GetById(id)
+	set resp = ##class(Src.CleanCity.DAL.Responsible).GetById(id)
 	if (resp.Areas.Count() = 0) {
-		
+		do ##class(Src.CleanCity.DAL.Responsible).Delete(id)
 	}
 	else
 	{
-		
+		$$$throw("Вы не можете удалить ответственного, которому принадлежит хоть один участок")
 	}
 }
 

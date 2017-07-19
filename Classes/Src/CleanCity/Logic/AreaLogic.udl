@@ -57,6 +57,18 @@ ClassMethod Save(dto As Src.CleanCity.DTO.AreaDTO)
  	do ##class(Src.CleanCity.DAL.Area).Save(result)
 }
 
+ClassMethod Delete(id As %Integer)
+{
+	set area = ##class(Src.CleanCity.DAL.Area).GetById(id)
+	if (area.Acts.Count() = 0) {
+		do ##class(Src.CleanCity.DAL.Area).Delete(id)
+	}
+	else
+	{
+		$$$throw("Вы не можете удалить зону, на которую поступило хоть одно обращение")
+	}
+}
+
 Storage Default
 {
 <Data name="AreaLogicDefaultData">
