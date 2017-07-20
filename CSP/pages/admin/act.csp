@@ -12,7 +12,7 @@
             	<p>{{act.phone}}</p>
             	<p>{{act.email}}</p>
             	<p>{{act.content}}</p>
-            	<p>{{act.area}}</p>
+            	<p>{{act.area.responsible.name}}</p>
             	<p>{{act.status.name}}</p>
             	<p>{{act.category.name}}</p>
             </td>
