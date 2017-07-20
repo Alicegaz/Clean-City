@@ -57,6 +57,11 @@ adminModule.config(function ($routeProvider, $httpProvider) {
 	  controller: 'ResponsibleController',
 	  controllerAs: 'vm'
   })
+  .when('/act', {
+	  templateUrl: 'pages/admin/act.csp',
+	  controller: 'ActController',
+	  controllerAs: 'vm'
+  })
   ;
 
   $routeProvider.otherwise({

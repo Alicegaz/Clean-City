@@ -13,7 +13,7 @@
         vm.del = del;
 		vm.save = save;
         function loadResponsibles() {
-            vm.categories = ResponsibleSrvc.getAll()
+            vm.responsibles = ResponsibleSrvc.getAll()
             .then(function(result){
 	            console.log(result)
                     vm.responsibles = result.data;
@@ -56,7 +56,7 @@
         var isDelete = confirm("Вы действительно хотите удалить организацию?");
         if (isDelete) {
         ResponsibleSrvc.deleteOne(delId);
-        FlashService.Success("The category is successfully deleted");
+        //FlashService.Success("The category is successfully deleted");
         }
         loadResponsibles();
         }
