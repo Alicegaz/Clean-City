@@ -1,12 +1,17 @@
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 <div class="w3-row-padding w3-margin-bottom">
 <div class="w3-container">
-    <h5>Категории</h5><div class="w3-right"><span class="fa fa-plus"></span></div>
+	<div class="w3-bar w3-border w3-light-grey">
+  		<div class="w3-bar-item w3-button">Категории</div>
+  		<a href="admin.csp#!/categories/edit" class="w3-bar-item w3-button w3-green w3-right"><span class="fa fa-plus"></span></a>
+	</div>
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
         <tr ng-repeat="category in vm.categories">
-            <td>{{category.name}}</td>
-            <td><div ng-click="vm.save(category)"><span class="fa fa-pencil"></span></div></td>
-            <td><div ng-click="vm.del(category)"><span class="fa fa-trash"></span></div></td>
+            <td class="w3-col s11">{{category.name}}</td>
+            <td class="w3-col s1">
+            	<p><a ng-click="vm.save(category)"><span class="fa fa-pencil"></span></a></p>
+            	<p><a ng-click="vm.del(category)"><span class="fa fa-trash"></span></a></p>
+            </td>
         </tr>
     </table>
 </div>

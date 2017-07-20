@@ -7,11 +7,15 @@
 </div>
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
         <tr ng-repeat="responsible in vm.responsibles">
-            <td>{{responsible.name}}</td>
-            <td>{{responsible.phone}}</td>
-            <td>{{responsible.email}}</td>
-            <td><div ng-click="vm.save(responsible)"><span class="fa fa-pencil"></span></div></td>
-            <td><div ng-click="vm.del(responsible)"><span class="fa fa-trash"></span></div></td>
+            <td class="w3-col s11">
+            	<p>{{responsible.name}}</p>
+            	<p>{{responsible.phone}}</p>
+            	<p>{{responsible.email}}</p>
+            </td>
+            <td class="w3-col s1">
+            	<p><a href="#" ng-click="vm.save(responsible)"><span class="fa fa-pencil"></span></a></p>
+                <p><a href="#" ng-click="vm.del(responsible)"><span class="fa fa-trash"></span></a></p>
+            </td>
         </tr>
     </table>
 </div>
