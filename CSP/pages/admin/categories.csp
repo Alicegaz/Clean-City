@@ -1,10 +1,17 @@
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 <div class="w3-row-padding w3-margin-bottom">
 <div class="w3-container">
+<<<<<<< .mine
+<div class="w3-bar w3-border w3-light-grey w3-margin-top" >
+  <div class="w3-bar-item w3-buttont">Категории</div>
+  <a href="admin.csp#!/categories/edit" class="w3-bar-item w3-button w3-green w3-right"><span class="fa fa-plus"></span></a></div>
+
+=======
 	<div class="w3-bar w3-border w3-light-grey">
   		<div class="w3-bar-item w3-button">Категории</div>
   		<a href="admin.csp#!/categories/edit" class="w3-bar-item w3-button w3-green w3-right"><span class="fa fa-plus"></span></a>
 	</div>
+>>>>>>> .theirs
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
         <tr ng-repeat="category in vm.categories">
             <td class="w3-col s11">{{category.name}}</td>

@@ -1,13 +1,14 @@
-    <div class="w3-main" style="margin-left:150px;margin-top:86px;">
+    <div class="w3-main" style="margin-left:50px;">
     <div class="w3-row-padding w3-margin-bottom">
    	 <form name="form" ng-submit="vm.save()" role="form" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
             
-     <h2 class="w3-center">Оставить заявку</h2>
+     <h2 class="w3-center">ГЋГ±ГІГ ГўГЁГІГј Г§Г ГїГўГЄГі</h2>
          
         <div class="w3-row w3-section" ng-class="{'has-error': (form.name.$dirty && form.name.$error.required)||(form.name.$invalid && !form.name.$pristine)}">
           <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
             <div class="w3-rest">
-               <input class="w3-input w3-border" ng-model="vm.act.name" ng-pattern="/^[а-яА-ЯёЁ]+$/" name="name" type="text" placeholder = "Ваше имя" required/>
+             <label>Р¤РРћ</label>
+               <input class="w3-input w3-border" ng-model="vm.act.name" ng-pattern="/^[Г -ГїГЂ-ГџВёВЁ]+$/" name="name" type="text"  required/>
             	<div ng-show="form.name$invalid && !form.name.$pristine" class="help-block">
             	</div>
             	
@@ -15,44 +16,42 @@
         </div>
 
         <div class="w3-row w3-section" ng-class="{'has-error': (form.phone$dirty && form.phone.$error.required)||(form.phone.$invalid && !form.phone.$pristine)}">
-          <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+          <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-phone"></i></div>
             <div class="w3-rest">
-               <input class="w3-input w3-border" ng-model="vm.act.phone" ng-pattern="/^((\+7)|8)\([0-9]{3}\)[0-9]{3}-[0-9]{2}-[0-9]{2}$/" name="phone" type="text" placeholder = "Ваш телефон" required/> 
+             <label>РўРµР»РµС„РѕРЅ</label>
+               <input class="w3-input w3-border" ng-model="vm.act.phone"  name="phone" type="text"  required/> 
+            </div>
+        </div>
 
-               
+          <div class="w3-row w3-section" ng-class="{'has-error': (form.email$dirty && form.email.$error.required)||(form.email.$invalid && !form.email.$pristine)}">
+          <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-envelope"></i></div>
+            <div class="w3-rest">
+             <label>Email</label>
+               <input class="w3-input w3-border" ng-model="vm.act.email" name="email" type="email"  required/> 
             </div>
         </div>
         
-                <div class="w3-row w3-section" ng-class="{'has-error': (form.email$dirty && form.email.$error.required)||(form.email.$invalid && !form.email.$pristine)}">
-          <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
-            <div class="w3-rest">
-               <input class="w3-input w3-border" ng-model="vm.act.email" name="email" type="email" placeholder = "Ваш Email" required/> 
 
-                
-            </div>
-        </div>
-        
-          <div class="w3-row w3-section" ng-class="{'has-error': (form.content$dirty && form.content.$error.required)||(form.content.$invalid && !form.content.$pristine)}">
-          <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
-            <div class="w3-rest">
-               <input class="w3-input w3-border" ng-model="vm.act.content" name="content" type="text" placeholder = "Комментарий к заявке" required/> 
-
-               
-            </div>
-        </div>
-        
         <div class="w3-row w3-section" ng-class="{'has-error': (form.category$dirty && form.category.$error.required)||(form.category.$invalid && !form.category.$pristine)}">
-          <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+          <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-list-alt"></i></div>
             <div class="w3-rest">
-            
-              <select name="category" class="w3-input w3-border" ng-options="category.name for category in categories" ng-model="vm.act.category" required></select>
-              <!-- <input class="w3-input w3-border" ng-model="vm.act.category"  name="category" type="text"  required/> -->
-
-                
+             <label>РљР°С‚РµРіРѕСЂРёСЏ РѕР±СЂР°С‰РµРЅРёСЏ</label>
+              <select name="category" class="w3-input w3-border" ng-options="category.name for category in categories" ng-model="vm.act.category"  required>
+              </select>
             </div>
         </div>
-        <button type="submit" class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">Сохранить</button>
-        <button type="button" class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding" ng-click="vm.cancel()">Отмена</button>
+
+          <div class="w3-row w3-section" ng-class="{'has-error': (form.content$dirty && form.content.$error.required)||(form.content.$invalid && !form.content.$pristine)}">
+          <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+            <div class="w3-rest">
+             <label>Р’Р°С€ РєРѕРјРјРµРЅС‚Р°СЂРёР№</label>
+               <textarea class="w3-input w3-border"  ng-model="vm.act.content" name="content" type="text"  required>  </textarea>
+            </div>
+        </div>
+        
+
+        <button type="submit" class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">Г‘Г®ГµГ°Г Г­ГЁГІГј</button>
+        <button type="button" class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding" ng-click="vm.cancel()">ГЋГІГ¬ГҐГ­Г </button>
         </form>
           </div>
         </div>
