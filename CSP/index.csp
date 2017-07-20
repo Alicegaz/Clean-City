@@ -1,8 +1,9 @@
 <!doctype html>
 
+<html>
 <head>
-  <title>Чистый город</title>
   <meta charset="utf-8">
+  <title>Чистый город</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
@@ -23,17 +24,21 @@
   <script type="text/javascript" src="lib/angular-1.6.5/angular-cookies.min.js"></script>
   <script type="text/javascript" src="lib/jquery-3.2.1/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfNkB71b7u44sSC3PhD-osBUo6EWPznkw"></script>
+  <script type="text/javascript" src="lib/ui-bootstrap/angular-ui-tpl.js"></script>
 
   <!-- App -->
   <script type="text/javascript" src="app.js"></script>
 
   <!-- Controllers -->
   <script type="text/javascript" src="pages/main/main.controller.js"></script>
+  <script type="text/javascript" src="pages/newAct/newAct.js"></script>
 
   <!-- Services -->
   <script type="text/javascript" src="pages/main/main.services.js"></script>
   <script type="text/javascript" src="services/AreaSrvc.js"></script>
-
+  <script type="text/javascript" src="services/ActSrvc.js"></script>
+  <script type="text/javascript" src="services/CategorySrvc.js"></script>
+  <script type="text/javascript" src="services/FlashService.js"></script>
   <!-- Directives -->
 
 </body>

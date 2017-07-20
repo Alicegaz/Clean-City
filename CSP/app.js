@@ -3,7 +3,7 @@
 var servicesModule = angular.module('servicesModule', []);
 var controllersModule = angular.module('controllersModule', []);
 var directivesModule = angular.module('directivesModule', []);
-var mainModule = angular.module('mainModule', ['servicesModule', 'controllersModule', 'directivesModule', 'ngRoute', 'ngCookies']);
+var mainModule = angular.module('mainModule', ['servicesModule', 'controllersModule', 'directivesModule', 'ngRoute', 'ngCookies', 'ui.bootstrap']);
 
 mainModule.config(function ($routeProvider, $httpProvider) {
   $httpProvider.useApplyAsync(true);
@@ -14,7 +14,8 @@ mainModule.config(function ($routeProvider, $httpProvider) {
   })
   .when('/newAct/:areaId', {
     templateUrl: 'pages/newAct/newAct.csp',
-    controller: 'newActController'
+    controller: 'newActController',
+    controllerAs: 'vm'
   });
 
   $routeProvider.otherwise({
