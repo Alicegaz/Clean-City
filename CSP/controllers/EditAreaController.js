@@ -33,32 +33,42 @@
             AreaSrvc.getOne($routeParams.id).then(function(response)
             {
 	            var area = response.data;
+	            console.log(response.data);
 	            var geoPointsString = "";
-	            console.log(area.geoPoints);
+	            //console.log(area.geoPoints);
 	            for (var i = 0; i<area.geoPoints.length; i++)
 	            {
 		            console.log("entered");
 		            var str =area.geoPoints[i].latitude.toString()+','+area.geoPoints[i].longitude.toString()+' ';
 		        	geoPointsString+=str;
 		        }
-	            console.log(geoPointsString);
-	            console.log(vm.formData)
+	            //console.log(geoPointsString);
+	            //console.log(vm.formData)
+	            var responsible = null;
+	            console.log(vm.responsibles);
+	            console.log(area.responsible);
+	            for (var i = 0; i<vm.responsibles.length; i++){
+		            if (vm.responsibles[i].id == area.responsible.id) responsible = vm.responsibles[i];
+	            }
+	            console.log(responsible);
                 vm.formData = {
 	                geoPoints:geoPointsString, 
-                	responsible:area.responsible
+                	responsible:responsible
                 };
             });
 	        }
 	        else{
-		        vm.formData = {};
-		        }
+		        vm.formData = {
+			        responsible:vm.responsibles[0]
+			    };
+	        }
         }
-        loadArea();
         function loadResponsibles()
         {
             ResponsibleSrvc.getAll().then(function(response){
-	            console.log(response.data);
+	            //console.log(response.data);
                 vm.responsibles = response.data;
+        		loadArea();
             });
         }
         loadResponsibles();
@@ -70,9 +80,10 @@
             {
 	            var arrPoints = arr[i].toString().split(',');
 	            var geoPoint = {latitude:arrPoints[0], longitude: arrPoints[1]};
-	            if(arrPoints.length>2)
+	            if(arrPoints.length!=2)
 	            {
-		            msg = "Необходимо ввести данные в формате 'число,число число,число'";
+		            vm.msg = "Необходимо ввести данные в формате 'число,число число,число'";
+		        	vm.danger = true;
 		        }
 	            list_of_pairs.push(geoPoint);      
 	        }
@@ -94,7 +105,7 @@
         
         function reset()
         {
-            loadCategory();
+            loadArea();
         }
         
 
