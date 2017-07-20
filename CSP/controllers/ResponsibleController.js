@@ -12,7 +12,7 @@
         
         vm.del = del;
 		vm.save = save;
-        function loadCategories() {
+        function loadResponsibles() {
             vm.categories = ResponsibleSrvc.getAll()
             .then(function(result){
 	            console.log(result)
@@ -20,7 +20,7 @@
             })
         }
         
-        loadCategories();
+        loadResponsibles();
 
 
         function save(responsible)
@@ -58,6 +58,7 @@
         ResponsibleSrvc.deleteOne(delId);
         FlashService.Success("The category is successfully deleted");
         }
+        loadResponsibles();
         }
         
 

@@ -8,6 +8,10 @@ servicesModule.factory('ActSrvc', function($http) {
     },
     update: function(act){
       return $http.post('broker/act-save', act)
-    }
+    },
+    deleteOne: function(id)
+    {
+	    return $http.delete('broker/act/'+id);
+	}
   }
 })

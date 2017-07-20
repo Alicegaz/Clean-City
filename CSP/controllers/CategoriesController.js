@@ -61,8 +61,10 @@
         var delId = category.id;
         var isDelete = confirm("Вы действительно хотите удалить категорию?");
         if (isDelete) {
-        CatSrvc.deleteOne(delId);
-        FlashService.Success("The category is successfully deleted");
+        	CatSrvc.deleteOne(delId).then(function(response)
+        	{
+	        	//FlashService.Success("The category is successfully deleted");
+	       	});      	
         }
         }
 

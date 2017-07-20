@@ -8,6 +8,10 @@ servicesModule.factory('AreaSrvc', function($http) {
     },
     update: function(area){
       return $http.post('broker/area-save', area)
-    }
+    },
+    deleteOne: function(id)
+    {
+	    return $http.delete('broker/area/'+id);
+	}
   }
 })

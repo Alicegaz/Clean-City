@@ -10,7 +10,7 @@ servicesModule.factory('ResponsibleSrvc', function($http) {
 		return $http.post('broker/responsible-save', responsible);
 	},
 	deleteOne: function(id){
-		return '';	
+		return $http.delete('broker/responsible/'+id);	
 	}
 	  	
  }

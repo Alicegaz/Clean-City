@@ -8,9 +8,6 @@ servicesModule.factory('CatSrvc', function($http) {
   	},
 	update: function(category){
 		return $http.post('broker/category-save', category);
-	},
-	deleteOne: function(id){
-		return '';	
 	}
 	  	
  }

@@ -59,9 +59,10 @@
         var delId = area.id;
         var isDelete = confirm("Вы действительно хотите удалить территорию?");
         if (isDelete) {
-        AreaSrvc.deleteOne(delId);
-        FlashService.Success("The category is successfully deleted");
+        	AreaSrvc.deleteOne(delId);
+        	//FlashService.Success("The category is successfully deleted");
         }
+        loadAreas();
         }
         
 

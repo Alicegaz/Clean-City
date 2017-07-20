@@ -13,8 +13,8 @@
             	<p>{{responsible.email}}</p>
             </td>
             <td class="w3-col s1">
-            	<p><a href="#" ng-click="vm.save(responsible)"><span class="fa fa-pencil"></span></a></p>
-                <p><a href="#" ng-click="vm.del(responsible)"><span class="fa fa-trash"></span></a></p>
+            	<p><a ng-click="vm.save(responsible)"><span class="fa fa-pencil"></span></a></p>
+                <p><a ng-click="vm.del(responsible)"><span class="fa fa-trash"></span></a></p>
             </td>
         </tr>
     </table>

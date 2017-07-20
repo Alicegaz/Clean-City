@@ -34,13 +34,15 @@
             {
 	            var area = response.data;
 	            var geoPointsString = "";
-	            
+	            console.log(area.geoPoints);
 	            for (var i = 0; i<area.geoPoints.length; i++)
 	            {
+		            console.log("entered");
 		            var str =area.geoPoints[i].latitude.toString()+','+area.geoPoints[i].longitude.toString()+' ';
 		        	geoPointsString+=str;
 		        }
 	            console.log(geoPointsString);
+	            console.log(vm.formData)
                 vm.formData = {
 	                geoPoints:geoPointsString, 
                 	responsible:area.responsible
