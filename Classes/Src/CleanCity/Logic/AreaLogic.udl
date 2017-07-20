@@ -5,16 +5,7 @@ ClassMethod GetById(id As %Integer) As Src.CleanCity.DTO.AreaDTO
 {
 	set object = ##class(Src.CleanCity.DAL.Area).GetById(id)
 	
-	set dto = ##class(Src.CleanCity.DTO.AreaDTO).%New()
-	
-	set dto.id = object.%Id()
-	
-	set sr =  ##class(Src.CleanCity.Logic.ResponsibleLogic).GetByObject(object.Responsible)
-	//set dto.responsible = ##class(Src.CleanCity.Logic.ResponsibleLogic).GetByObject(object.Responsible)
-	if ($isObject(sr)){
-	    set dto.responsible = sr
-	}
-	return dto
+	return ..GetByObject(object)
 }
 
 ClassMethod GetAll() As %ListOfObjects
@@ -34,9 +25,8 @@ ClassMethod GetByObject(obj As Src.CleanCity.Data.Area) As Src.CleanCity.DTO.Are
 {
   set result = ##class(Src.CleanCity.DTO.AreaDTO).%New()
   set result.id = obj.%Id()
-  set sr = ##class(Src.CleanCity.Logic.ResponsibleLogic).GetByObject(obj.Responsible)
-  if ($isObject(sr)) {
-  set result.responsible = sr
+  if ($isObject(obj.Responsible)) {
+	  set result.responsible = ##class(Src.CleanCity.Logic.ResponsibleLogic).GetByObject(obj.Responsible)
   }
   set result.geoPoints = ##class(%ListOfObjects).%New()
   for i=1:1:obj.GeoPoints.Count(){
