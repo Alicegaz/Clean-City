@@ -1,0 +1,27 @@
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+<div class="w3-row-padding w3-margin-bottom">
+<div class="w3-container">
+<div class="w3-bar w3-border w3-light-grey w3-margin-top">
+  <div class="w3-bar-item w3-button">Обращения</div>
+  <a href="admin.csp#!/act/edit" class="w3-bar-item w3-button w3-green w3-right"></a>
+</div>
+    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+        <tr ng-repeat="act in vm.acts">
+            <td class="w3-col s11">
+            	<p>{{act.name}}</p>
+            	<p>{{act.phone}}</p>
+            	<p>{{act.email}}</p>
+            	<p>{{act.content}}</p>
+            	<p>{{act.area}}</p>
+            	<p>{{act.status.name}}</p>
+            	<p>{{act.category.name}}</p>
+            </td>
+            <!--td class="w3-col s1">
+            	<p><a ng-click="vm.save(act)"><span class="fa fa-pencil"></span></a></p>
+                <p><a ng-click="vm.del(act)"><span class="fa fa-trash"></span></a></p>
+            </td-->
+        </tr>
+    </table>
+</div>
+</div>
+</div>
