@@ -28,7 +28,7 @@
         <br />
         <div class="w3-container w3-row">
             <div class="w3-collapse s4">
-                <img src="" class="w3-circle w3-margin-right" style="width:46px;" />
+               
             </div>
             <div class="w3-collapse s8 w3-bar">
                 <span>Admin</span>
@@ -36,11 +36,9 @@
         </div>
         <hr />
         <div class="w3-container">
-            <h5><a href="#"class="w3-bar-item w3-button w3-padding"></a></h5>
         </div>
         <div class="w3-bar-block">
-            <a href="" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>Close Menu</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black">Dashboard</a>
+            <a href="#"class="w3-bar-item w3-button w3-padding-16 w3-dark-grey w3-hover-black">Dashboard</a>
             <a href="#!/categories" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw">Категории</i></a>
             <a href="#!/area" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw">Территории</i></a>
             <a href="#!/responsible" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw">Учреждения</i></a>
