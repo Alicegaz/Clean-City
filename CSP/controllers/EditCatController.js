@@ -13,6 +13,18 @@
         vm.reset = reset;
         vm.saved = false;
         
+        vm.msg = 'Изменить';
+        
+        function isCreate()
+        {
+	        if (!$routeParams.id)
+	        {
+		        vm.msg = 'Сохранить';
+		    }
+	    }
+	    
+	    isCreate();
+        
         function loadCategory()
         {
 	        if($routeParams.id){
@@ -31,7 +43,8 @@
                 CatSrvc.update(vm.category)
             .then(function() {
                     $timeout(function(){
-                        loadCategory();
+                        //loadCategory();
+                        $location.path('/categories');
                         vm.saved = true;
                     }, 300);
                 })

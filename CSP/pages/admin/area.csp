@@ -7,10 +7,10 @@
 </div>
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
         <tr ng-repeat="area in vm.areas">
-            <td>{{area.responsible}}</td>
+            <td>{{area.responsible.name}}</td>
             <td ng-repeat="point in area.geoPoints">({{point.latitude}}, {{point.longitude}})</td>
-            <td><a href="#" ng-click="vm.edit(area)"><span class="fa fa-pencil"></span></a></td>
-            <td><a href="#" ng-click="vm.delete(area)"><span class="fa fa-trash"></span></a></td>
+            <td><div ng-click="vm.save(area)"><span class="fa fa-pencil"></span></div></td>
+            <td><div ng-click="vm.del(area)"><span class="fa fa-trash"></span></div></td>
         </tr>
     </table>
 </div>

@@ -1,0 +1,1 @@
+<div ng-class="{'alert': flash, 'alert-success': flash-type === 'success', 'alert-danger': flash.type === 'error'}" ng-if="flash" ng-bind="flash.message"></div><h5>Вы действительно хотите удалить категорию {{vm.name}}?</h5><button ng-click="del()" class="btn btn-default">Да</button><button class="btn btn-default" data-dismiss="modal">Нет</button>

@@ -4,7 +4,7 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-            <div ng-view></div>
+            <div ng-class="{'alert': flash, 'alert-success': flash-type === 'success', 'alert-danger': flash.type === 'error'}" ng-if="flash" ng-bind="flash.message"></div><h5>{{modalOptions.headerText}}?</h5>{{modalOptions.bodyText}}<button ng-click="del()" class="btn btn-default">{{modalOptinos.closeButtonText}}</button><button class="btn btn-default" data-dismiss="modal">{{modalOptions.actionButtonText}}</button>
         </div>
     </div>
 </div>

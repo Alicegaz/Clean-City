@@ -9,7 +9,7 @@
     function ArCtrl($location, $window, $rootScope, $scope, $timeout, $modal, FlashService, modalService, AreaSrvc) {
         var vm = this;
         vm.areas = null;
-        
+        vm.save = save;
         vm.del = del;
         
         
@@ -28,7 +28,7 @@
         }
 
         function del(area) {
-
+		/*
         var modalOptions = {
             closeButtonText: 'Нет',
             actionButtonText: 'Да',
@@ -55,7 +55,13 @@
                     FlashService.Error("Object is not found");
                 }
             });
-        });
+        });*/
+        var delId = area.id;
+        var isDelete = confirm("Вы действительно хотите удалить территорию?");
+        if (isDelete) {
+        AreaSrvc.deleteOne(delId);
+        FlashService.Success("The category is successfully deleted");
+        }
         }
         
 

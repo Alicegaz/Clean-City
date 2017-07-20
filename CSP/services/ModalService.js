@@ -6,7 +6,7 @@ servicesModule.service('modalService', ['$modal',
 			backdrop: true,
 			keyboard: true,
 			modalFade: true,
-			templateUrl: '/pages/admin/popups/popup.csp'
+			templateUrl: 'pages/admin/popups/popup.csp'
 		};
 
 		var modalOptions = {

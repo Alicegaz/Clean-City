@@ -6,7 +6,7 @@
         <tr ng-repeat="category in vm.categories">
             <td>{{category.name}}</td>
             <td><div ng-click="vm.save(category)"><span class="fa fa-pencil"></span></div></td>
-            <td><div ng-click="vm.delete(category)"><span class="fa fa-trash"></span></div></td>
+            <td><div ng-click="vm.del(category)"><span class="fa fa-trash"></span></div></td>
         </tr>
     </table>
 </div>

@@ -85,7 +85,9 @@ function w3_close() {
 	<script src="controllers/CategoriesController.js"></script>
 	<script src="controllers/EditCatController.js"></script>
 	<script src="controllers/EditAreaController.js"></script>
+	<script src="controllers/EditResponsibleController.js"></script>
 	<script src="controllers/AreaController.js"></script>
+	<script src="controllers/ResponsibleController.js"></script>
 	<script src="services/AreaSrvc.js"></script>
 	<script src="services/CategorySrvc.js"></script>
 	<script src="services/FlashService.js"></script>
